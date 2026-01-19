@@ -92,11 +92,18 @@ router.get("/services/:section", async (req, res) => {
 
 
 router.get("/page/:section", async (req, res) => {
-  const images = await Image.find({
-    page: "landing",
-    section: req.params.section,
-  });
-  res.json(images);
+  try {
+    const section = req.params.section.toLowerCase();
+    const all = await Image.find({});
+    const images = await Image.find({
+      page: "landing",
+      section: section,
+    });
+    res.json(images);
+  } catch (err) {
+    console.error("ERROR:", err);
+    res.status(500).json(err.message);
+  }
 });
 
 router.get("/page/services", async (req, res) => {

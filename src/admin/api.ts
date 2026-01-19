@@ -7,13 +7,13 @@ export const fetchImages = async (
   let url = "";
 
 if (type === "landingpage" && section === "services") {
-  url = `${API}/landing/services`;
+  url = `${API}/api/images/landing/services`;
 }
 else if (type === "landingpage") {
-  url = `${API}/page/${section}`;
+  url = `${API}/api/images/page/${section}`;
 }
 else if (type === "services") {
-  url = `${API}/services/${page.toLowerCase()}/${section}`;
+  url = `${API}/api/images/services/${page.toLowerCase()}/${section}`;
 }
 
   const res = await fetch(url);
@@ -21,7 +21,7 @@ else if (type === "services") {
 };
 
 export const deleteImage = async (id: string) => {
-  await fetch(`${API}/${id}`, { method: "DELETE" });
+  await fetch(`${API}/api/images/${id}`, { method: "DELETE" });
 };
 
 

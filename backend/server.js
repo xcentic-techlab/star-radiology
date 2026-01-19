@@ -5,6 +5,8 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const Admin = require("./models/admin");   
 
+const PORT = process.env.PORT || 8000;
+
 const app = express();
 app.use(cors({
   origin: "*",
@@ -56,6 +58,6 @@ async function createDefaultAdmin() {
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/images", require("./routes/image.routes"));
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("Server is running ");
 });
