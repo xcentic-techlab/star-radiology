@@ -122,7 +122,7 @@ useEffect(() => {
   </Button>
 </Link>
 
-              <Link to="/services">
+              <Link to="/services/pathology">
                 <Button variant="hero-outline" size="xl">
                   Explore Services
                 </Button>
