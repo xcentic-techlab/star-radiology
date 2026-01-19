@@ -50,19 +50,17 @@ const Header = () => {
           </div>
         </div>
       </div>
+
       <nav className="bg-card/95 backdrop-blur-md shadow-md">
         <div className="container mx-auto flex justify-between items-center py-4">
-          <Link to="/" className="flex items-center gap-3">
-
-            <Link to="/" className="flex items-center gap-2">
-  <img 
-    src={starradiology_logo} 
-    alt="Lifeline Diagnostics Logo" 
-    className="h-14 w-auto object-contain"
-  />
-</Link>
-
+          <Link to="/" className="flex items-center gap-2">
+            <img 
+              src={starradiology_logo} 
+              alt="Lifeline Diagnostics Logo" 
+              className="h-14 w-auto object-contain"
+            />
           </Link>
+
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
@@ -91,7 +89,7 @@ const Header = () => {
                     {item.name}
                   </Link>
                 )}
-                
+
                 {item.children && (
                   <AnimatePresence>
                     {openDropdown === item.name && (
@@ -121,12 +119,10 @@ const Header = () => {
             ))}
           </div>
 
-<Button className="bg-primary/95 hover:bg-primary text-white px-6 py-3 rounded-md shadow-md">
-  Book Appointment
-</Button>
+          <Button className="hidden lg:inline-flex bg-primary/95 hover:bg-primary text-white px-6 py-3 rounded-md shadow-md">
+            Book Appointment
+          </Button>
 
-
-          {/* Mobile menu button */}
           <button
             className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors"
             onClick={() => setIsOpen(!isOpen)}
@@ -134,6 +130,7 @@ const Header = () => {
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -191,7 +188,11 @@ const Header = () => {
                     )}
                   </div>
                 ))}
-                
+
+                <Button className="mt-4 w-full bg-primary text-white py-3 rounded-md shadow-md">
+                  Book Appointment
+                </Button>
+
               </div>
             </motion.div>
           )}
