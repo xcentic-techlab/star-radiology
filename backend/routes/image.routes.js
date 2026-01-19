@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/upload", upload.single("image"), async (req, res) => {
+router.post("/proxy/upload", upload.single("image"), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json("No file uploaded");
 
@@ -62,7 +62,7 @@ router.post("/upload", upload.single("image"), async (req, res) => {
 });
 
 
-router.get("/landing/services", async (req, res) => {
+router.get("/proxy/landing/services", async (req, res) => {
   try {
     const images = await Image.find({
       page: "landing",
@@ -77,7 +77,7 @@ router.get("/landing/services", async (req, res) => {
 
 
 
-router.get("/services/:section", async (req, res) => {
+router.get("/proxy/services/:section", async (req, res) => {
   try {
     const images = await Image.find({
       page: "services",
@@ -91,7 +91,7 @@ router.get("/services/:section", async (req, res) => {
 
 
 
-router.get("/page/:section", async (req, res) => {
+router.get("/proxy/page/:section", async (req, res) => {
   const images = await Image.find({
     page: "landing",
     section: req.params.section,
@@ -99,7 +99,7 @@ router.get("/page/:section", async (req, res) => {
   res.json(images);
 });
 
-router.get("/page/services", async (req, res) => {
+router.get("/proxy/page/services", async (req, res) => {
   const images = await Image.find({
     page: "landing",
     section: "services",
@@ -108,7 +108,7 @@ router.get("/page/services", async (req, res) => {
 });
 
 
-router.get("/page/:section/:key", async (req, res) => {
+router.get("/proxy/page/:section/:key", async (req, res) => {
   try {
     const { section, key } = req.params;
 
@@ -125,7 +125,7 @@ router.get("/page/:section/:key", async (req, res) => {
 });
 
 
-router.get("/services/:service/:key", async (req, res) => {
+router.get("/proxy/services/:service/:key", async (req, res) => {
   try {
     const { service, key } = req.params;
 
@@ -141,7 +141,7 @@ router.get("/services/:service/:key", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/proxy/:id", async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
     if (!image) return res.status(404).json("Image not found");

@@ -5,7 +5,7 @@ const Admin = require("../models/admin");
 const Otp = require("../models/Otp");
 const sendOtpEmail = require("../utils/sendEmail");
 
-router.post("/admin-login", async (req, res) => {
+router.post("/proxy/admin-login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -27,7 +27,7 @@ router.post("/admin-login", async (req, res) => {
 });
 
 
-router.post("/send-otp", async (req, res) => {
+router.post("/proxy/send-otp", async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -54,7 +54,7 @@ router.post("/send-otp", async (req, res) => {
   }
 });
 
-router.post("/verify-otp", async (req, res) => {
+router.post("/proxy/verify-otp", async (req, res) => {
   try {
     const { email, otp } = req.body;
 
@@ -73,7 +73,7 @@ router.post("/verify-otp", async (req, res) => {
 });
 
 
-router.post("/reset-password", async (req, res) => {
+router.post("/proxy/reset-password", async (req, res) => {
   try {
     const { email, newPassword } = req.body;
 
