@@ -2,8 +2,9 @@ export default async function handler(req, res) {
   try {
     const backendURL = "http://178.16.139.140:8080";
 
-    const targetPath = req.url.replace("/api/proxy", "");
-    const targetUrl = backendURL + targetPath;
+
+    const path = req.query.path.join("/");
+    const targetUrl = `${backendURL}/${path}`;
 
     const response = await fetch(targetUrl, {
       method: req.method,
@@ -11,7 +12,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json",
       },
       body:
-        req.method !== "GET"
+        req.method !== "GET" && req.method !== "HEAD"
           ? JSON.stringify(req.body)
           : undefined,
     });
