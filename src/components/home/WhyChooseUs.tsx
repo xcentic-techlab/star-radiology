@@ -29,17 +29,7 @@ const features = [
     icon: Shield,
     title: "Data Security",
     description: "Your health records are secure with our advanced data protection systems.",
-  },
-  {
-    icon: Microscope,
-    title: "Advanced Equipment",
-    description: "State-of-the-art diagnostic equipment for precise and reliable results.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Patient Care",
-    description: "Compassionate care and support throughout your diagnostic journey.",
-  },
+  }
 ];
 
 const achievements = [
@@ -61,9 +51,6 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Why Choose Us
-            </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
               Trusted Healthcare Partner for
               <span className="text-gradient block">Accurate Diagnostics</span>
@@ -102,9 +89,11 @@ const WhyChooseUs = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-card p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow"
               >
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="h-6 w-6 text-white" />
-                </div>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 
+  flex items-center justify-center mb-4 shadow-sm">
+  <feature.icon className="h-5 w-5 text-primary stroke-[2.2]" />
+</div>
+
                 <h3 className="font-display font-semibold text-lg text-foreground mb-2">
                   {feature.title}
                 </h3>

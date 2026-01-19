@@ -1,142 +1,273 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, Microscope, Scan, Activity, Radio, Bone, Baby } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import pathologyImage from "@/assets/pathology-service.jpg";
-import mriImage from "@/assets/mri-service.jpg";
-import ctScanImage from "@/assets/ct-scan-service.jpg";
+
+
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import pathologyImg from "@/assets/pathology.jpg";
+import mriImg from "@/assets/mri.jpg";
+import ctscanImg from "@/assets/ctscan.jpg";
+import radiologyImg from "@/assets/radiology.png";
+import xrayImg from "@/assets/xray.png";
+import ultrasoundImg from "@/assets/ultrasound.png";
+
+
+const PAGE_MAP: Record<string, string> = {
+  "Pathology": "Pathology",
+  "MRI Scan": "MRI",
+  "CT Scan": "CTScan",
+  "Radiology": "Radiology",
+  "X-Ray": "X-Ray",
+  "Ultrasound": "Ultrasound",
+};
+
+const FALLBACK_IMAGES: Record<string, string> = {
+  pathology: pathologyImg,
+  mri: mriImg,
+  ctscan: ctscanImg,
+  radiology: radiologyImg,
+  xray: xrayImg,
+  ultrasound: ultrasoundImg,
+};
+
+
 
 const services = [
   {
-    icon: Microscope,
     title: "Pathology",
-    description: "Comprehensive blood tests, biochemistry, and specialized diagnostic testing with accurate results.",
-    image: pathologyImage,
+    description:
+      "Comprehensive blood investigations with NABL-grade automation and precision diagnostics.",
     link: "/services/pathology",
-    color: "from-red-500 to-pink-500",
   },
   {
-    icon: Scan,
     title: "MRI Scan",
-    description: "Advanced magnetic resonance imaging for detailed internal body structure visualization.",
-    image: mriImage,
+    description:
+      "High-field MRI delivering crystal clear imaging for brain, spine and joints.",
     link: "/services/mri",
-    color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Activity,
     title: "CT Scan",
-    description: "High-resolution computed tomography for precise diagnosis of various conditions.",
-    image: ctScanImage,
+    description:
+      "Ultra-fast multi-slice CT with minimal radiation exposure for accurate diagnosis.",
     link: "/services/ct-scan",
-    color: "from-purple-500 to-indigo-500",
   },
   {
-    icon: Radio,
     title: "Radiology",
-    description: "Complete radiology services including digital X-rays and advanced imaging techniques.",
-    image: pathologyImage,
+    description:
+      "Complete digital radiology including X-ray, fluoroscopy and contrast studies.",
     link: "/services/radiology",
-    color: "from-green-500 to-emerald-500",
   },
   {
-    icon: Bone,
     title: "X-Ray",
-    description: "Quick and accurate X-ray imaging for bone and chest examinations.",
-    image: ctScanImage,
+    description:
+      "High-resolution digital X-ray ensuring fast and low-dose imaging.",
     link: "/services/x-ray",
-    color: "from-orange-500 to-amber-500",
   },
   {
-    icon: Baby,
     title: "Ultrasound",
-    description: "Non-invasive ultrasound imaging for various diagnostic purposes including pregnancy scans.",
-    image: mriImage,
+    description:
+      "Radiation-free ultrasound imaging with Doppler precision.",
     link: "/services/ultrasound",
-    color: "from-teal-500 to-cyan-500",
   },
 ];
 
-const ServicesSection = () => {
-  return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block px-4 py-2 bg-accent text-primary rounded-full text-sm font-medium mb-4">
-            Our Services
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Comprehensive Diagnostic
-            <span className="text-gradient block">Services</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            We offer a wide range of diagnostic services using state-of-the-art technology 
-            and performed by experienced healthcare professionals.
-          </p>
-        </motion.div>
+// 🎯 Center stack angles
+const stackRotate = [-20, -12, -5, 6, 12, 20];
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
-              <Link to={service.link}>
-                <div className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-60`} />
-                    <div className="absolute bottom-4 left-4">
-                      <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
-                        <service.icon className="h-7 w-7 text-primary" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-2">
-                      {service.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
-                      Learn More
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+// 🎯 Final grid positions
+const gridX = [-360, 0, 360, -360, 0, 360];
+const gridY = [-220, -220, -220, 260, 260, 260];
+
+const serviceNames = services.map((s) => s.title);
+const loopNames = [...serviceNames, ...serviceNames];
+
+const ServiceCard = ({ service, index, active, image }) => {
+  return (
+    <motion.div
+      className="absolute left-1/2 top-1/2"
+      style={{ translateX: "-50%", translateY: "-50%" }}
+      initial={false}
+      animate={
+        active
+          ? { x: gridX[index], y: gridY[index], rotate: 0, scale: 1 }
+          : { x: 0, y: 0, rotate: stackRotate[index], scale: 0.94 }
+      }
+      transition={{ type: "spring", stiffness: 90, damping: 14 }}
+    >
+      <div className="w-[270px] xl:w-[290px] rounded-3xl overflow-hidden
+                      bg-white/30 backdrop-blur-xl border border-white/30
+                      shadow-2xl">
+
+        {/* ✅ Dynamic Image */}
+        <div className="relative h-56 overflow-hidden">
+          <motion.img
+            src={
+              image
+            }
+            alt={service.title}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.1 }}
+          />
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Link to="/services">
-            <Button variant="outline" size="lg">
-              View All Services
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
-        </motion.div>
+        <div className="p-5">
+          <h3 className="text-lg font-bold text-gray-900 mb-1">
+            {service.title}
+          </h3>
+
+          <p className="text-gray-700 text-sm mb-4">
+            {service.description}
+          </p>
+
+          <button
+            onClick={() => (window.location.href = service.link)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg 
+                       text-xs font-semibold text-white 
+                       bg-gradient-to-r from-blue-900 to-blue-700"
+          >
+            Explore
+            <ArrowRight className="h-3 w-3" />
+          </button>
+        </div>
       </div>
+    </motion.div>
+  );
+};
+
+
+const ServicesSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-120px" });
+
+const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"];
+
+  const [serviceImages, setServiceImages] = useState<Record<string, string>>({});
+
+  // useEffect(() => {
+  //   const loadImages = async () => {
+  //     try {
+  //       const sections = [
+  //         "pathology",
+  //         "radiology",
+  //         "mri",
+  //         "ctscan",
+  //         "xray",
+  //         "ultrasound",
+  //       ];
+
+  //       const results = await Promise.all(
+  //         sections.map(async (section) => {
+  //           const res = await fetch(
+  //             `http://localhost:5000/api/images/services/${section}`
+  //           );
+  //           const data = await res.json();
+
+  //           console.log("📦 API", section, data);
+
+  //           return {
+  //             section,
+  //             url: data?.[0]?.url,
+  //           };
+  //         })
+  //       );
+
+  //       const map = {};
+  //       results.forEach((r) => {
+  //         if (r.url) map[r.section] = r.url;
+  //       });
+
+  //       console.log("✅ FINAL IMAGE MAP:", map);
+  //       setServiceImages(map);
+  //     } catch (err) {
+  //       console.error("❌ Failed to load service images", err);
+  //     }
+  //   };
+
+  //   loadImages();
+  // }, []);
+
+  // ✅ IMPORTANT → JSX RETURN ADDED
+  
+  useEffect(() => {
+  const loadImages = async () => {
+    try {
+      const res = await fetch(
+        "http://localhost:5000/api/images/page/services"
+      );
+
+      const data = await res.json();
+
+      console.log("📦 Landing Services Images:", data);
+
+      const map: Record<string, string> = {};
+      data.forEach((img: any) => {
+        map[img.key.toLowerCase()] = img.url;
+      });
+
+      console.log("✅ FINAL IMAGE MAP:", map);
+      setServiceImages(map);
+    } catch (err) {
+      console.error("❌ Failed to load service images", err);
+    }
+  };
+
+  loadImages();
+}, []);
+
+  
+  return (
+    <section ref={ref} className="relative overflow-hidden py-32">
+
+      {/* Heading */}
+      <div className="text-center mb-32 relative z-10">
+        <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          Our <span className="text-blue-900">Services</span>
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Premium diagnostic services powered by modern technology and expert clinicians.
+        </p>
+      </div>
+
+      {/* Cards Stage */}
+      <div className="relative h-[720px] xl:h-[760px]">
+        {services.map((service, index) => {
+          const pageKey = PAGE_MAP[service.title];
+
+
+const SECTION_MAP: Record<string, string> = {
+  "Pathology": "pathology",
+  "MRI Scan": "mri",
+  "CT Scan": "ctscan",
+  "Radiology": "radiology",
+  "X-Ray": "xray",
+  "Ultrasound": "ultrasound",
+};
+
+const sectionKey = SECTION_MAP[service.title];
+
+
+
+const image =
+  serviceImages[sectionKey] || FALLBACK_IMAGES[sectionKey];
+
+
+
+
+
+          return (
+            <ServiceCard
+              key={service.title}
+              service={service}
+              index={index}
+              active={isInView}
+              image={image}
+            />
+          );
+        })}
+      </div>
+
+      {/* Spacer */}
+      <div className="h-40" />
+
     </section>
   );
 };

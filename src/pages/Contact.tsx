@@ -8,41 +8,146 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white pt-0 mt-0">
       <Header />
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-accent text-primary rounded-full text-sm font-medium mb-4">Contact Us</span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch<span className="text-gradient block">With Our Team</span></h1>
+
+      <main className="pt-20 pb-0">
+        <div className="container mx-auto px-6">
+
+          {/* ---------------- Heading ---------------- */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-20"
+          >
+            <p className="text-sm uppercase tracking-wider text-blue-700 font-medium mb-3">
+              Contact Star Radiology
+            </p>
+
+            <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
+              We're Here To Help You With <br />
+              <span className="text-blue-900 font-bold">
+                Your Diagnostic Needs
+              </span>
+            </h1>
+
+            <p className="mt-5 text-slate-600 leading-relaxed">
+              Have questions about our services, appointments, reports or
+              diagnostics? Our support team is always ready to assist you with
+              quick and reliable guidance.
+            </p>
           </motion.div>
-          <div className="grid lg:grid-cols-2 gap-12">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
+
+          {/* ---------------- Content Grid ---------------- */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+            {/* ---------------- Contact Info ---------------- */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
               {[
-                { icon: Phone, title: "Phone", info: "1800-123-456" },
-                { icon: Mail, title: "Email", info: "info@lifelinediagnostics.com" },
-                { icon: MapPin, title: "Address", info: "123 Healthcare Ave, Medical District" },
-                { icon: Clock, title: "Hours", info: "Mon-Sat: 7AM-9PM" },
+                {
+                  icon: Phone,
+                  title: "Call Us",
+                  info: "+91-9711119014,+91-9711119015",
+                  sub: "Speak directly with our support team",
+                },
+                {
+                  icon: Mail,
+                  title: "Email",
+                  info: "info@starradiology.com",
+                  sub: "We reply within 24 working hours",
+                },
+                {
+                  icon: MapPin,
+                  title: "Visit Our Center",
+                  info: "KO-01, SECTOR-122,Noida Gautam Buddha Nagar Uttar Pradesh-201301",
+                  sub: "Noida, Uttar Pradesh",
+                },
+                {
+                  icon: Clock,
+                  title: "Working Hours",
+                  info: "Mon – Sat: 9:00 AM – 5:00 PM",
+                  sub: "Sunday closed",
+                },
               ].map((item) => (
-                <div key={item.title} className="flex items-center gap-4 bg-card p-5 rounded-xl shadow-md">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center"><item.icon className="h-6 w-6 text-white" /></div>
-                  <div><p className="text-muted-foreground text-sm">{item.title}</p><p className="font-semibold text-foreground">{item.info}</p></div>
+                <div
+                  key={item.title}
+                  className="flex items-start gap-5 rounded-2xl 
+                             border border-slate-200/70 bg-white 
+                             p-6 shadow-sm hover:shadow-md transition"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 
+                                  flex items-center justify-center shrink-0">
+                    <item.icon className="h-6 w-6 text-blue-700" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm text-slate-500">
+                      {item.title}
+                    </p>
+                    <p className="font-semibold text-slate-900">
+                      {item.info}
+                    </p>
+                    <p className="text-sm text-slate-500 mt-1">
+                      {item.sub}
+                    </p>
+                  </div>
                 </div>
               ))}
             </motion.div>
-            <motion.form initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-card p-8 rounded-2xl shadow-lg space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder="Your Name" className="h-12" />
-                <Input placeholder="Phone Number" className="h-12" />
+
+            {/* ---------------- Contact Form ---------------- */}
+            <motion.form
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl border border-slate-200/70 
+                         bg-white p-8 shadow-lg"
+            >
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                Send Us a Message
+              </h3>
+              <p className="text-sm text-slate-500 mb-6">
+                Fill out the form and our team will get back to you shortly.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <Input
+                  placeholder="Full Name"
+                  className="h-12"
+                />
+                <Input
+                  placeholder="Phone Number"
+                  className="h-12"
+                />
               </div>
-              <Input placeholder="Email Address" className="h-12" />
-              <Textarea placeholder="Your Message" className="min-h-32" />
-              <Button variant="hero" size="lg" className="w-full">Send Message</Button>
+
+              <Input
+                placeholder="Email Address"
+                className="h-12 mb-4"
+              />
+
+              <Textarea
+                placeholder="How can we help you?"
+                className="min-h-[140px] mb-6"
+              />
+
+              <Button
+                size="lg"
+                className="w-full bg-blue-700 hover:bg-blue-800"
+              >
+                Submit Enquiry
+              </Button>
             </motion.form>
+
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

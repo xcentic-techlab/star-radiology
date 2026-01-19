@@ -3,10 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import starradiology_logo from "@/assets/starradiology_logo.png"; 
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
+  { name: "About Us", path: "/about-us" },
   {
     name: "Services",
     path: "/services",
@@ -19,11 +20,8 @@ const navItems = [
       { name: "Ultrasound", path: "/services/ultrasound" },
     ],
   },
-  { name: "Our Centers", path: "/centers" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "Blog", path: "/blog" },
-  { name: "Careers", path: "/careers" },
-  { name: "Contact", path: "/contact" },
+  // { name: "Gallery", path: "/gallery" },
+  { name: "Contact", path: "/contact-us" },
 ];
 
 const Header = () => {
@@ -41,16 +39,16 @@ const Header = () => {
           <div className="flex items-center gap-6">
             <a href="tel:+1800123456" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="h-4 w-4" />
-              <span>1800-123-456</span>
+              <span>+91-9711119014</span>
             </a>
-            <a href="mailto:info@lifelinediagnostics.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="mailto:info@starradiology.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>info@lifelinediagnostics.com</span>
+              <span>info@starradiology.com</span>
             </a>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            <span>Mon - Sat: 7:00 AM - 9:00 PM</span>
+            <span>Mon - Sat: 9:00 AM - 5:00 PM</span>
           </div>
         </div>
       </div>
@@ -59,13 +57,15 @@ const Header = () => {
       <nav className="bg-card/95 backdrop-blur-md shadow-md">
         <div className="container mx-auto flex justify-between items-center py-4">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-              <span className="text-white font-display font-bold text-xl">L</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-xl text-foreground">Lifeline</span>
-              <span className="text-xs text-muted-foreground -mt-1">Diagnostics</span>
-            </div>
+
+            <Link to="/" className="flex items-center gap-2">
+  <img 
+    src={starradiology_logo} 
+    alt="Lifeline Diagnostics Logo" 
+    className="h-14 w-auto object-contain"
+  />
+</Link>
+
           </Link>
 
           {/* Desktop Navigation */}
@@ -127,13 +127,10 @@ const Header = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link to="/book-appointment">
-              <Button variant="hero" size="lg">
-                Book Appointment
-              </Button>
-            </Link>
-          </div>
+<Button className="bg-primary/95 hover:bg-primary text-white px-6 py-3 rounded-md shadow-md">
+  Book Appointment
+</Button>
+
 
           {/* Mobile menu button */}
           <button
@@ -202,11 +199,7 @@ const Header = () => {
                     )}
                   </div>
                 ))}
-                <Link to="/book-appointment" onClick={() => setIsOpen(false)}>
-                  <Button variant="hero" className="w-full mt-4">
-                    Book Appointment
-                  </Button>
-                </Link>
+                
               </div>
             </motion.div>
           )}

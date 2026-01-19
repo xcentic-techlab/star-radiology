@@ -1,44 +1,34 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import starradiology_logo from "@/assets/starradiology_logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-background">
-      {/* CTA Section */}
-      <div className="bg-gradient-primary py-12">
-        <div className="container mx-auto text-center">
-          <h3 className="font-display text-3xl font-bold text-white mb-4">
-            Ready to Take Control of Your Health?
-          </h3>
-          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            Book an appointment today and experience world-class diagnostic services with cutting-edge technology and expert care.
-          </p>
-          <Link to="/book-appointment">
-            <Button variant="hero-outline" size="xl">
-              Book Your Appointment
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-      </div>
+    <div className="bg-transparent pt-12">
+     <footer className="bg-foreground text-background 
+                   max-w-[98%] mx-auto
+                   rounded-t-3xl
+                   rounded-b-none
+                   overflow-hidden">
+
 
       {/* Main Footer */}
       <div className="py-16">
-        <div className="container mx-auto">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* About */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center">
-                  <span className="text-white font-display font-bold text-xl">L</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display font-bold text-xl text-white">Lifeline</span>
-                  <span className="text-xs text-white/60 -mt-1">Diagnostics</span>
-                </div>
+            <Link to="/" className="flex items-center gap-2">
+  <img 
+    src={starradiology_logo} 
+    alt="Lifeline Diagnostics Logo" 
+    className="h-14 w-auto object-contain"
+  />
+</Link>
               </div>
               <p className="text-white/70 mb-6 leading-relaxed">
                 Your trusted partner in healthcare diagnostics. We combine advanced technology with compassionate care to deliver accurate and timely results.
@@ -60,13 +50,13 @@ const Footer = () => {
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
-                {["About Us", "Our Services", "Our Centers", "Book Appointment", "Careers", "Contact Us"].map((link) => (
+                {["About Us", "Book Appointment", "Contact Us"].map((link) => (
                   <li key={link}>
                     <Link
                       to={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
                       className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
                     >
-                      <ArrowRight className="h-4 w-4" />
+                      
                       {link}
                     </Link>
                   </li>
@@ -78,13 +68,13 @@ const Footer = () => {
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Our Services</h4>
               <ul className="space-y-3">
-                {["Pathology", "Radiology", "MRI Scan", "CT Scan", "X-Ray", "Ultrasound"].map((service) => (
+                {["Pathology", "Radiology", "MRI", "CT-Scan", "X-Ray", "Ultrasound"].map((service) => (
                   <li key={service}>
                     <Link
                       to={`/services/${service.toLowerCase().replace(/\s+/g, "-")}`}
                       className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
                     >
-                      <ArrowRight className="h-4 w-4" />
+                      
                       {service}
                     </Link>
                   </li>
@@ -98,23 +88,23 @@ const Footer = () => {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                  <span className="text-white/70">123 Healthcare Avenue, Medical District, City - 400001</span>
+                  <span className="text-white/70">KO-01, SECTOR-122,Noida Gautam Buddha Nagar,Uttar Pradesh-201301,</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-primary" />
                   <a href="tel:+1800123456" className="text-white/70 hover:text-primary transition-colors">
-                    1800-123-456
+                    +91-9711119014,+91-9711119015
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-primary" />
-                  <a href="mailto:info@lifelinediagnostics.com" className="text-white/70 hover:text-primary transition-colors">
-                    info@lifelinediagnostics.com
+                  <a href="mailto:info@starradiology.com" className="text-white/70 hover:text-primary transition-colors">
+                    info@starradiology.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span className="text-white/70">Mon - Sat: 7:00 AM - 9:00 PM</span>
+                  <span className="text-white/70">Mon - Sat: 9:00 AM - 5:00 PM</span>
                 </li>
               </ul>
             </div>
@@ -124,7 +114,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-6">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-white/60 text-sm">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-white/60 text-sm">
+
           <p>© {currentYear} Lifeline Diagnostics. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-primary transition-colors">
@@ -137,6 +128,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    </div>
   );
 };
 

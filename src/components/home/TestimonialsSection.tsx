@@ -1,148 +1,160 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    id: 1,
     name: "Priya Sharma",
     role: "Teacher",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+    image:
+      "https://www.fujitsu.com/global/Images/Srinita_1_tcm100-3656043.jpg",
     rating: 5,
-    text: "Excellent service and very professional staff. The MRI scan was done quickly and the reports were delivered on time. Highly recommend Lifeline Diagnostics for anyone looking for quality healthcare services.",
+    text: "Excellent service and very professional staff. Highly recommended.",
   },
   {
-    id: 2,
     name: "Rajesh Kumar",
     role: "Business Owner",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/049/174/246/small/a-smiling-young-indian-man-with-formal-shirts-outdoors-photo.jpg",
     rating: 5,
-    text: "I was impressed by the cleanliness and modern equipment at the center. The doctors explained everything clearly and the staff was very caring. Will definitely come back for future checkups.",
+    text: "Clean facility, modern machines and caring staff.",
   },
   {
-    id: 3,
     name: "Anjali Patel",
     role: "Software Engineer",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    image:
+      "https://thumbs.dreamstime.com/b/vertical-portrait-happy-young-business-lady-indian-ethnicity-standing-confident-pose-looking-camera-profile-picture-339154738.jpg",
     rating: 5,
-    text: "Very convenient online appointment booking and minimal waiting time. The whole process was smooth and the results were accurate. Great experience overall!",
+    text: "Online booking was smooth and reports were accurate.",
   },
   {
-    id: 4,
-    name: "Dr. Arun Mehta",
-    role: "Physician",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+    name: "Rohit Verma",
+    role: "Designer",
+    image:
+      "https://img.freepik.com/free-photo/closeup-young-hispanic-man-casuals-studio_662251-600.jpg",
     rating: 5,
-    text: "As a referring physician, I trust Lifeline Diagnostics for their accuracy and professionalism. Their detailed reports help me provide better care to my patients.",
+    text: "Very fast service and polite staff.",
   },
 ];
 
-const TestimonialsSection = () => {
-  const [current, setCurrent] = useState(0);
+// duplicate for infinite loop
+const loopTestimonials = [...testimonials, ...testimonials];
 
-  const next = () => {
-    setCurrent((prev) => (prev + 1) % testimonials.length);
+const CARD_WIDTH = 300; // scroll distance per click
+
+const TestimonialsSection = () => {
+  const sliderRef = useRef(null);
+
+  const scrollLeft = () => {
+    sliderRef.current.scrollBy({
+      left: -CARD_WIDTH,
+      behavior: "smooth",
+    });
   };
 
-  const prev = () => {
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const scrollRight = () => {
+    sliderRef.current.scrollBy({
+      left: CARD_WIDTH,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <section className="py-20 bg-background overflow-hidden">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block px-4 py-2 bg-accent text-primary rounded-full text-sm font-medium mb-4">
-            Testimonials
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What Our Patients
-            <span className="text-gradient block">Say About Us</span>
+    <section className="py-28 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold mb-3">
+            What Our <span className="text-blue-900">Patients Say</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear from our satisfied patients about their experience with our diagnostic services.
+          <p className="text-gray-600">
+            Trusted feedback from our happy patients.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <AnimatePresence mode="wait">
+        {/* Slider Wrapper */}
+        <div className="relative">
+          {/* Left Button */}
+          <button
+            onClick={scrollLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10
+                       w-11 h-11 rounded-full bg-white shadow-lg border
+                       flex items-center justify-center
+                       hover:scale-110 active:scale-95 transition"
+          >
+            <ChevronLeft />
+          </button>
+
+          {/* Right Button */}
+          <button
+            onClick={scrollRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10
+                       w-11 h-11 rounded-full bg-white shadow-lg border
+                       flex items-center justify-center
+                       hover:scale-110 active:scale-95 transition"
+          >
+            <ChevronRight />
+          </button>
+
+          {/* Scroll Area */}
+          <div
+            ref={sliderRef}
+            className="relative overflow-x-auto scroll-smooth no-scrollbar py-6 px-14"
+          >
             <motion.div
-              key={current}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="bg-card rounded-3xl shadow-xl p-8 md:p-12 relative"
+              className="flex gap-8 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                repeat: Infinity,
+                duration: 35,
+                ease: "linear",
+              }}
             >
-              <Quote className="absolute top-8 right-8 h-16 w-16 text-primary/10" />
-              
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="flex-shrink-0">
+              {loopTestimonials.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -20, scale: 1.06 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15,
+                  }}
+                  className="min-w-[220px] h-[260px] bg-white rounded-2xl 
+                             shadow-lg p-5 flex flex-col items-center 
+                             text-center cursor-pointer"
+                >
+                  {/* Avatar */}
                   <img
-                    src={testimonials[current].image}
-                    alt={testimonials[current].name}
-                    className="w-24 h-24 rounded-2xl object-cover shadow-lg"
+                    src={item.image}
+                    alt={item.name}
+                    className="w-20 h-20 rounded-full object-cover mb-4 ring-4 ring-blue-100"
                   />
-                </div>
-                
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex justify-center md:justify-start gap-1 mb-4">
-                    {[...Array(testimonials[current].rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-warning text-warning" />
+
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-2">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      />
                     ))}
                   </div>
-                  
-                  <p className="text-foreground text-lg leading-relaxed mb-6">
-                    "{testimonials[current].text}"
-                  </p>
-                  
-                  <div>
-                    <h4 className="font-display font-semibold text-foreground">
-                      {testimonials[current].name}
-                    </h4>
-                    <p className="text-muted-foreground text-sm">
-                      {testimonials[current].role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-12 h-12 rounded-full bg-card shadow-md flex items-center justify-center hover:bg-accent transition-colors"
-            >
-              <ChevronLeft className="h-5 w-5 text-foreground" />
-            </button>
-            
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrent(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === current
-                      ? "bg-primary w-8"
-                      : "bg-border hover:bg-primary/50"
-                  }`}
-                />
+                  {/* Text */}
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-3">
+                    “{item.text}”
+                  </p>
+
+                  {/* Name */}
+                  <h4 className="font-semibold text-gray-900">
+                    {item.name}
+                  </h4>
+                  <span className="text-xs text-gray-500">
+                    {item.role}
+                  </span>
+                </motion.div>
               ))}
-            </div>
-            
-            <button
-              onClick={next}
-              className="w-12 h-12 rounded-full bg-card shadow-md flex items-center justify-center hover:bg-accent transition-colors"
-            >
-              <ChevronRight className="h-5 w-5 text-foreground" />
-            </button>
+            </motion.div>
           </div>
         </div>
       </div>

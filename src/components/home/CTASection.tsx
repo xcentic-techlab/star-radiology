@@ -1,89 +1,106 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Phone, Calendar, MapPin } from "lucide-react";
+import { Phone, Calendar, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto">
-        <div className="bg-gradient-hero rounded-3xl p-8 md:p-16 relative overflow-hidden">
-          {/* Background decorations */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-2xl" />
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 md:p-16 shadow-2xl">
           
-          <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          {/* Glow decorations */}
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-2xl" />
+
+          <div className="relative z-10 grid md:grid-cols-2 gap-14 items-center">
+            
+            {/* Left Content */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
                 Need a Health Checkup?
-                <span className="block mt-2">Book Your Appointment Today!</span>
+                <span className="block text-white/90 mt-2">
+                  Book Your Appointment Today
+                </span>
               </h2>
-              <p className="text-white/80 mb-8 leading-relaxed">
-                Our team of experienced healthcare professionals is ready to assist you 
-                with comprehensive diagnostic services. Schedule your appointment now 
-                and take the first step towards better health.
+
+              <p className="text-white/80 max-w-xl mb-10 leading-relaxed">
+                Our experienced healthcare professionals provide accurate diagnostics,
+                fast reporting, and complete patient care. Your health is our priority.
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 <Link to="/book-appointment">
-                  <Button variant="hero-outline" size="xl">
-                    <Calendar className="h-5 w-5" />
+                  <Button
+                    size="xl"
+                    className="group bg-white text-primary hover:bg-white/90 shadow-lg"
+                  >
+                    <Calendar className="h-5 w-5 mr-2" />
                     Book Appointment
+                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
+
                 <a href="tel:+1800123456">
-                  <Button variant="hero-outline" size="xl">
-                    <Phone className="h-5 w-5" />
+                  <Button
+                    size="xl"
+                    className="border-white bo text-white hover:bg-white/10"
+                  >
+                    <Phone className="h-5 w-5 mr-2" />
                     Call Now
                   </Button>
                 </a>
               </div>
             </motion.div>
 
+            {/* Right Info Cards */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              transition={{ duration: 0.5 }}
+              className="space-y-5"
             >
               {[
                 {
                   icon: Phone,
                   title: "24/7 Helpline",
-                  info: "1800-123-456",
-                  subtext: "Free toll-free number",
+                  info: "+91-9711119014,+91-9711119015",
+                  subtext: "Toll free support",
                 },
                 {
                   icon: Calendar,
                   title: "Working Hours",
-                  info: "Mon - Sat: 7AM - 9PM",
-                  subtext: "Sunday: 8AM - 2PM",
+                  info: "Mon – Sat: 7AM – 9PM",
+                  subtext: "Sunday: 8AM – 2PM",
                 },
                 {
                   icon: MapPin,
                   title: "Our Locations",
-                  info: "100+ Centers",
+                  info: "100+ Diagnostic Centers",
                   subtext: "Across major cities",
                 },
               ].map((item, index) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-5"
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="flex items-center gap-4 rounded-2xl bg-white/10 backdrop-blur-md p-5 border border-white/10 hover:bg-white/15"
                 >
-                  <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20">
                     <item.icon className="h-7 w-7 text-white" />
                   </div>
+
                   <div>
                     <p className="text-white/60 text-sm">{item.title}</p>
-                    <p className="text-white font-semibold text-lg">{item.info}</p>
+                    <p className="text-white font-semibold text-lg leading-tight">
+                      {item.info}
+                    </p>
                     <p className="text-white/50 text-sm">{item.subtext}</p>
                   </div>
                 </motion.div>
