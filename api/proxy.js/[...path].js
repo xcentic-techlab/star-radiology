@@ -2,9 +2,8 @@ export default async function handler(req, res) {
   try {
     const backendURL = "http://178.16.139.140:8080";
 
-
     const path = req.query.path.join("/");
-    const targetUrl = `${backendURL}/${path}`;
+    const targetUrl = `${backendURL}/api/${path}`;
 
     const response = await fetch(targetUrl, {
       method: req.method,
