@@ -2,12 +2,13 @@ import ServicesLayout from "../ServicesLayout";
 import { ctScanData } from "./CtScanData";
 import { useEffect, useState } from "react";
 
+const API = import.meta.env.VITE_API_URL;
 
 export default function CTScanPage() {
   const [backendImages, setBackendImages] = useState({});
 
   useEffect(() => {
-fetch("http://localhost:5000/api/images/services/ctscan")
+fetch(`${API}/api/images/services/ctscan`)
     .then(res => res.json())
     .then(data => {
       const obj = {};

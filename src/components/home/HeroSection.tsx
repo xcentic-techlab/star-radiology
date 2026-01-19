@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import fallbackHero from "@/assets/hero-diagnostic.jpg";
 import { useEffect, useState } from "react";
 
+const API = import.meta.env.VITE_API_URL;
 
 const stats = [
   {  value: 50, suffix: "K+", label: "Happy Patients" },
@@ -50,7 +51,7 @@ const HeroSection = () => {
 useEffect(() => {
   const loadHeroImage = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/images/page/banner");
+      const res = await fetch(`${API}/api/images/page/banner`);
 
 
       const data = await res.json();

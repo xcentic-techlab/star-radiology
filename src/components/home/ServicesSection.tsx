@@ -10,6 +10,7 @@ import radiologyImg from "@/assets/radiology.png";
 import xrayImg from "@/assets/xray.png";
 import ultrasoundImg from "@/assets/ultrasound.png";
 
+const API = import.meta.env.VITE_API_URL;
 
 const PAGE_MAP: Record<string, string> = {
   "Pathology": "Pathology",
@@ -189,7 +190,7 @@ const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"]
   const loadImages = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5000/api/images/page/services"
+        `${API}/api/images/page/services`
       );
 
       const data = await res.json();

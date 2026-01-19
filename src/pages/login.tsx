@@ -10,6 +10,7 @@ import starradiology_logo from "@/assets/starradiology_logo.png";
 import loginImage from "@/assets/hero-diagnostic.png";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
 
 
 export default function Login() {
@@ -25,7 +26,7 @@ export default function Login() {
       setLoading(true);
       setError("");
 
-      const res = await fetch("http://localhost:5000/api/auth/admin-login", {
+      const res = await fetch(`${API}/api/auth/admin-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
