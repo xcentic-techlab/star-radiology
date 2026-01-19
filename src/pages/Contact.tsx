@@ -13,8 +13,6 @@ const Contact = () => {
 
       <main className="pt-20 pb-0">
         <div className="container mx-auto px-6">
-
-          {/* ---------------- Heading ---------------- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,11 +36,7 @@ const Contact = () => {
               quick and reliable guidance.
             </p>
           </motion.div>
-
-          {/* ---------------- Content Grid ---------------- */}
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-            {/* ---------------- Contact Info ---------------- */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -100,8 +94,6 @@ const Contact = () => {
                 </div>
               ))}
             </motion.div>
-
-            {/* ---------------- Contact Form ---------------- */}
             <motion.form
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}

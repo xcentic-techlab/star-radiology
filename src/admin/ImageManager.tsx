@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import ImageGrid from "./ImageGrid";
 import { fetchImages, deleteImage } from "./api";
 
-
-
-/* 🌍 Config */
 const CONFIG = {
   landingpage: {
     pages: ["home"],
@@ -87,21 +84,18 @@ const handleDelete = async (id: string) => {
   try {
     await deleteImage(id);
     showToast("success", "Image deleted successfully");
-    loadImages(); // refresh grid
+    loadImages(); 
   } catch {
     showToast("error", "Failed to delete image");
   }
 };
 
-
-  /* 🔁 Reset when type changes */
   useEffect(() => {
     const cfg = CONFIG[type];
     setPage(cfg.pages[0]);
     setSection(cfg.sections[0]);
   }, [type]);
 
-  /* 📥 Load images */
   const loadImages = async () => {
     try {
       setLoading(true);
@@ -134,8 +128,6 @@ const handleDelete = async (id: string) => {
   </div>
 )}
 
-
-      {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">Image Management Panel</h1>
         <p className="text-sm text-slate-600">
@@ -143,10 +135,8 @@ const handleDelete = async (id: string) => {
         </p>
       </div>
 
-      {/* Controls */}
       <div className="flex flex-wrap justify-end gap-6 mb-8">
 
-        {/* ✅ Type */}
         <div>
           <label className="text-xs font-semibold">Page Type</label>
           <select
@@ -159,7 +149,6 @@ const handleDelete = async (id: string) => {
           </select>
         </div>
 
-       {/* ✅ Page / Service */}
 <div>
   <label className="text-xs font-semibold">
     {type === "services" ? "Service" : "Page"}
@@ -167,7 +156,7 @@ const handleDelete = async (id: string) => {
 
   <select
     value={page}
-    disabled={type === "landingpage"}   // ✅ disable for landing
+    disabled={type === "landingpage"}   
     onChange={(e) => setPage(e.target.value)}
     className={`block w-52 rounded-xl px-4 py-2 border-2 
       ${
@@ -184,7 +173,6 @@ const handleDelete = async (id: string) => {
     ))}
   </select>
 
-  {/* Hint */}
   {type === "landingpage" && (
     <p className="text-[10px] text-slate-400 mt-1">
       Landing page is fixed to <b>home</b>
@@ -192,8 +180,6 @@ const handleDelete = async (id: string) => {
   )}
 </div>
 
-
-        {/* ✅ Section */}
         <div>
           <label className="text-xs font-semibold">Section</label>
 
@@ -212,14 +198,12 @@ const handleDelete = async (id: string) => {
 
       </div>
 
-      {/* Loader */}
       {loading && (
         <p className="text-center text-sm text-slate-500 mb-4">
           Loading images...
         </p>
       )}
 
-      {/* Grid */}
       <ImageGrid images={images} onDelete={handleDelete} />
     </div>
   );

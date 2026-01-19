@@ -1,7 +1,5 @@
-//image management API
 const BASE_URL = "http://localhost:5000/api/images";
 
-/* ✅ Fetch images by type + page + section */
 export const fetchImages = async (
   type: string,
   page: string,
@@ -19,14 +17,10 @@ else if (type === "services") {
   url = `${BASE_URL}/services/${page.toLowerCase()}/${section}`;
 }
 
-
-  console.log("📡 Fetching:", url); // ✅ Debug
-
   const res = await fetch(url);
   return res.json();
 };
 
-/* ✅ Delete */
 export const deleteImage = async (id: string) => {
   await fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
 };

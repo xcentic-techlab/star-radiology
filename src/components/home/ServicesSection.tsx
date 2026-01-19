@@ -70,10 +70,7 @@ const services = [
   },
 ];
 
-// 🎯 Center stack angles
 const stackRotate = [-20, -12, -5, 6, 12, 20];
-
-// 🎯 Final grid positions
 const gridX = [-360, 0, 360, -360, 0, 360];
 const gridY = [-220, -220, -220, 260, 260, 260];
 
@@ -97,7 +94,6 @@ const ServiceCard = ({ service, index, active, image }) => {
                       bg-white/30 backdrop-blur-xl border border-white/30
                       shadow-2xl">
 
-        {/* ✅ Dynamic Image */}
         <div className="relative h-56 overflow-hidden">
           <motion.img
             src={
@@ -133,6 +129,53 @@ const ServiceCard = ({ service, index, active, image }) => {
   );
 };
 
+const GlassStrip = () => {
+  const items = [
+    "Radiology",
+    "Ultrasound",
+    "Pathology",
+    "MRI",
+    "CT Scan",
+    "X-Ray",
+  ];
+
+  return (
+    <div className="relative overflow-hidden py-10 mt-20">
+      <div
+        className="absolute inset-0 mx-6 rounded-3xl
+                   bg-white/20 backdrop-blur-xl
+                   border border-white/30 shadow-xl"
+      />
+
+      <div className="relative overflow-hidden">
+        <motion.div
+          className="flex w-max gap-20 px-10"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            duration: 18,
+            ease: "linear",
+          }}
+        >
+          {[...items, ...items].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3
+                         text-2xl md:text-3xl font-semibold
+                         text-blue-900/90 whitespace-nowrap"
+            >
+              <span className="opacity-50">✦</span>
+              {item}
+              <span className="opacity-50">✦</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+
 
 const ServicesSection = () => {
   const ref = useRef(null);
@@ -142,51 +185,6 @@ const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"]
 
   const [serviceImages, setServiceImages] = useState<Record<string, string>>({});
 
-  // useEffect(() => {
-  //   const loadImages = async () => {
-  //     try {
-  //       const sections = [
-  //         "pathology",
-  //         "radiology",
-  //         "mri",
-  //         "ctscan",
-  //         "xray",
-  //         "ultrasound",
-  //       ];
-
-  //       const results = await Promise.all(
-  //         sections.map(async (section) => {
-  //           const res = await fetch(
-  //             `http://localhost:5000/api/images/services/${section}`
-  //           );
-  //           const data = await res.json();
-
-  //           console.log("📦 API", section, data);
-
-  //           return {
-  //             section,
-  //             url: data?.[0]?.url,
-  //           };
-  //         })
-  //       );
-
-  //       const map = {};
-  //       results.forEach((r) => {
-  //         if (r.url) map[r.section] = r.url;
-  //       });
-
-  //       console.log("✅ FINAL IMAGE MAP:", map);
-  //       setServiceImages(map);
-  //     } catch (err) {
-  //       console.error("❌ Failed to load service images", err);
-  //     }
-  //   };
-
-  //   loadImages();
-  // }, []);
-
-  // ✅ IMPORTANT → JSX RETURN ADDED
-  
   useEffect(() => {
   const loadImages = async () => {
     try {
@@ -196,17 +194,13 @@ const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"]
 
       const data = await res.json();
 
-      console.log("📦 Landing Services Images:", data);
-
       const map: Record<string, string> = {};
       data.forEach((img: any) => {
         map[img.key.toLowerCase()] = img.url;
       });
-
-      console.log("✅ FINAL IMAGE MAP:", map);
       setServiceImages(map);
     } catch (err) {
-      console.error("❌ Failed to load service images", err);
+      console.error("Failed to load service images", err);
     }
   };
 
@@ -216,8 +210,6 @@ const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"]
   
   return (
     <section ref={ref} className="relative overflow-hidden py-32">
-
-      {/* Heading */}
       <div className="text-center mb-32 relative z-10">
         <h2 className="text-5xl md:text-6xl font-bold mb-4">
           Our <span className="text-blue-900">Services</span>
@@ -226,8 +218,6 @@ const pages = ["pathology", "radiology", "mri", "ctscan", "x-ray", "ultrasound"]
           Premium diagnostic services powered by modern technology and expert clinicians.
         </p>
       </div>
-
-      {/* Cards Stage */}
       <div className="relative h-[720px] xl:h-[760px]">
         {services.map((service, index) => {
           const pageKey = PAGE_MAP[service.title];
@@ -243,16 +233,8 @@ const SECTION_MAP: Record<string, string> = {
 };
 
 const sectionKey = SECTION_MAP[service.title];
-
-
-
 const image =
   serviceImages[sectionKey] || FALLBACK_IMAGES[sectionKey];
-
-
-
-
-
           return (
             <ServiceCard
               key={service.title}
@@ -264,9 +246,9 @@ const image =
           );
         })}
       </div>
+<div className="h-24" />
+<GlassStrip />
 
-      {/* Spacer */}
-      <div className="h-40" />
 
     </section>
   );

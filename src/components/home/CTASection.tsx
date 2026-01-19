@@ -9,13 +9,11 @@ const CTASection = () => {
       <div className="container mx-auto px-4">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 md:p-16 shadow-2xl">
           
-          {/* Glow decorations */}
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-2xl" />
 
           <div className="relative z-10 grid md:grid-cols-2 gap-14 items-center">
-            
-            {/* Left Content */}
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,8 +55,6 @@ const CTASection = () => {
                 </a>
               </div>
             </motion.div>
-
-            {/* Right Info Cards */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}

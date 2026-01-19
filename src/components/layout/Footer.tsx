@@ -13,13 +13,9 @@ const Footer = () => {
                    rounded-t-3xl
                    rounded-b-none
                    overflow-hidden">
-
-
-      {/* Main Footer */}
       <div className="py-16">
   <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* About */}
             <div>
               <div className="flex items-center gap-3 mb-6">
             <Link to="/" className="flex items-center gap-2">
@@ -45,8 +41,6 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-
-            {/* Quick Links */}
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Quick Links</h4>
               <ul className="space-y-3">
@@ -63,8 +57,6 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Services */}
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Our Services</h4>
               <ul className="space-y-3">
@@ -81,8 +73,6 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Contact */}
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Contact Info</h4>
               <ul className="space-y-4">
@@ -112,21 +102,33 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-6">
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4 text-white/60 text-sm">
+<div className="max-w-7xl mx-auto px-6 lg:px-12 
+                flex flex-col md:flex-row justify-between items-center gap-4 
+                text-white/60 text-sm">
+  <p>© {currentYear} Lifeline Diagnostics. All rights reserved.</p>
+  <div className="flex gap-6">
+    <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+      Privacy Policy
+    </Link>
+    <Link to="/terms-of-service" className="hover:text-primary transition-colors">
+      Terms of Service
+    </Link>
+  </div>
+  <div className="flex items-center gap-2 text-white/50">
+    <span>Powered by</span>
+    <a
+      href="https://xcentic.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-semibold tracking-widest text-white/70 
+                 hover:text-primary transition"
+    >
+      XCENTIC
+    </a>
+  </div>
 
-          <p>© {currentYear} Lifeline Diagnostics. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/privacy-policy" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </div>
+</div>
+
     </footer>
     </div>
   );

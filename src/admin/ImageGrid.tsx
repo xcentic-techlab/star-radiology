@@ -28,7 +28,6 @@ export default function ImageGrid({ images, onDelete }: Props) {
                      shadow-lg hover:shadow-2xl
                      transition-all duration-300"
         >
-          {/* Image */}
           <div className="relative h-44 overflow-hidden">
             <img
               src={img.url}
@@ -37,18 +36,14 @@ export default function ImageGrid({ images, onDelete }: Props) {
             />
           </div>
 
-          {/* Footer */}
           <div className="flex items-center justify-between px-4 py-3 text-sm">
 
-            {/* Key */}
             <span className="font-medium text-black truncate">
               {img.key}
             </span>
 
-            {/* Right Actions */}
             <div className="flex items-center gap-3">
 
-              {/* Status Badge */}
               <span
                 className="text-xs px-3 py-1 rounded-full
                            bg-emerald-500/20 text-emerald-300"
@@ -56,7 +51,6 @@ export default function ImageGrid({ images, onDelete }: Props) {
                 Active
               </span>
 
-              {/* Delete Button (Always visible) */}
               <button
                 onClick={() => onDelete(img._id)}
                 className="p-2 rounded-full 

@@ -71,8 +71,6 @@ export default function CircularBenefits({ benefits }) {
     );
   })}
 </svg>
-
-          {/* Center */}
           <div className="absolute inset-20 rounded-full bg-white shadow-lg flex flex-col items-center justify-center">
             <span className="text-xs text-slate-500">KEY BENEFITS</span>
             <span className="text-xl font-semibold text-slate-900">
@@ -131,16 +129,12 @@ export default function CircularBenefits({ benefits }) {
           }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
         />
-
-        {/* Dot Near Circle */}
         <circle
           cx="10"
           cy="60"
           r="4"
           fill={isActive ? color : "#CBD5E1"}
         />
-
-        {/* Dot Near Card */}
         <circle
           cx="250"
           cy="60"
@@ -148,8 +142,6 @@ export default function CircularBenefits({ benefits }) {
           fill={isActive ? color : "#CBD5E1"}
         />
       </svg>
-
-      {/* ---------------- CARD ---------------- */}
       <motion.div
         animate={{
           boxShadow: isActive
@@ -163,7 +155,6 @@ export default function CircularBenefits({ benefits }) {
       >
         <div className="flex gap-4 items-start">
 
-          {/* Number */}
           <div
             className="w-10 h-10 rounded-lg flex items-center justify-center font-semibold text-white shrink-0"
             style={{
@@ -173,8 +164,6 @@ export default function CircularBenefits({ benefits }) {
           >
             {index + 1}
           </div>
-
-          {/* Text */}
           <div>
             <h4 className="font-semibold text-slate-900">
               {item.title}

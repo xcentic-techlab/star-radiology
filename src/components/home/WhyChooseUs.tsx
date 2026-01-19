@@ -44,7 +44,6 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-accent">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -77,8 +76,6 @@ const WhyChooseUs = () => {
               ))}
             </ul>
           </motion.div>
-
-          {/* Right content - Features grid */}
           <div className="grid sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <motion.div

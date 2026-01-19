@@ -20,7 +20,6 @@ const navItems = [
       { name: "Ultrasound", path: "/services/ultrasound" },
     ],
   },
-  // { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact-us" },
 ];
 
@@ -33,13 +32,12 @@ const Header = () => {
 
   return (
     <header className="w-full fixed top-0 left-0 right-0 z-50">
-      {/* Top bar */}
       <div className="bg-primary text-primary-foreground py-2 hidden md:block">
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href="tel:+1800123456" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="h-4 w-4" />
-              <span>+91-9711119014</span>
+              <span>+91-9711119014, +91-9818400832</span>
             </a>
             <a href="mailto:info@starradiology.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
@@ -52,8 +50,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* Main navigation */}
       <nav className="bg-card/95 backdrop-blur-md shadow-md">
         <div className="container mx-auto flex justify-between items-center py-4">
           <Link to="/" className="flex items-center gap-3">
@@ -67,8 +63,6 @@ const Header = () => {
 </Link>
 
           </Link>
-
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
@@ -140,8 +134,6 @@ const Header = () => {
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div

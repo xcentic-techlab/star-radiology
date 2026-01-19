@@ -37,10 +37,9 @@ const testimonials = [
   },
 ];
 
-// duplicate for infinite loop
 const loopTestimonials = [...testimonials, ...testimonials];
 
-const CARD_WIDTH = 300; // scroll distance per click
+const CARD_WIDTH = 300; 
 
 const TestimonialsSection = () => {
   const sliderRef = useRef(null);
@@ -62,7 +61,6 @@ const TestimonialsSection = () => {
   return (
     <section className="py-28 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold mb-3">
             What Our <span className="text-blue-900">Patients Say</span>
@@ -71,10 +69,7 @@ const TestimonialsSection = () => {
             Trusted feedback from our happy patients.
           </p>
         </div>
-
-        {/* Slider Wrapper */}
         <div className="relative">
-          {/* Left Button */}
           <button
             onClick={scrollLeft}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10
@@ -84,8 +79,6 @@ const TestimonialsSection = () => {
           >
             <ChevronLeft />
           </button>
-
-          {/* Right Button */}
           <button
             onClick={scrollRight}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10
@@ -95,8 +88,6 @@ const TestimonialsSection = () => {
           >
             <ChevronRight />
           </button>
-
-          {/* Scroll Area */}
           <div
             ref={sliderRef}
             className="relative overflow-x-auto scroll-smooth no-scrollbar py-6 px-14"
@@ -123,14 +114,11 @@ const TestimonialsSection = () => {
                              shadow-lg p-5 flex flex-col items-center 
                              text-center cursor-pointer"
                 >
-                  {/* Avatar */}
                   <img
                     src={item.image}
                     alt={item.name}
                     className="w-20 h-20 rounded-full object-cover mb-4 ring-4 ring-blue-100"
                   />
-
-                  {/* Stars */}
                   <div className="flex gap-1 mb-2">
                     {[...Array(item.rating)].map((_, i) => (
                       <Star
@@ -139,13 +127,9 @@ const TestimonialsSection = () => {
                       />
                     ))}
                   </div>
-
-                  {/* Text */}
                   <p className="text-sm text-gray-600 mb-3 line-clamp-3">
                     “{item.text}”
                   </p>
-
-                  {/* Name */}
                   <h4 className="font-semibold text-gray-900">
                     {item.name}
                   </h4>

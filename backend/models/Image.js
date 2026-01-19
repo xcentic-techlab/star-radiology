@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const imageSchema = new mongoose.Schema({
-  page: String,        // landingpage | services
-  section: String,     // banner | radiology | mri | ctscan | ultrasound ...
-  key: String,         // HeroImage | Machine1 ...
+  page: String,        
+  section: String,     
+  key: String,         
   url: String,
   public_id: String,
 });

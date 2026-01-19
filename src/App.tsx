@@ -22,6 +22,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Login from "./pages/login";  
 import PublicLayout from "@/layouts/PublicLayout";
 import AdminLayout from "@/layouts/AdminLayout";
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 
@@ -35,29 +36,21 @@ const App = () => (
 
       <BrowserRouter>
         <Routes>
-
-          {/* 🔓 Login (NO Header / Footer) */}
           <Route path="/admin-login" element={<Login />} />
-
-          {/* 🌍 Public Layout (with Header + Footer) */}
+          {/* <Route path="/admin-forgot-password" element={<ForgotPassword />} /> */}
           <Route element={<PublicLayout />}>
 
             <Route path="/" element={<Index />} />
             <Route path="/about-us" element={<About />} />
             <Route path="/contact-us" element={<Contact />} />
             {/* <Route path="/gallery" element={<Gallery />} /> */}
-
-            {/* Services */}
             <Route path="/services/pathology" element={<PathologyPage />} />
             <Route path="/services/mri" element={<MRIPage />} />
             <Route path="/services/ct-scan" element={<CTScanPage />} />
             <Route path="/services/radiology" element={<RadiologyPage />} />
             <Route path="/services/ultrasound" element={<UltrasoundPage />} />
             <Route path="/services/x-ray" element={<XRayPage />} />
-
-
           </Route>
-
           <Route
             element={
               <ProtectedRoute>
@@ -68,8 +61,6 @@ const App = () => (
             <Route path="/admin-image-uploader" element={<ImageUploader />} />
             <Route path="/admin-image-manager" element={<ImageManager />} />
           </Route>
-
-          {/* 404 */}
           <Route path="*" element={<NotFound />} />
 
         </Routes>

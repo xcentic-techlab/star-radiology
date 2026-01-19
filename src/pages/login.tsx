@@ -8,6 +8,9 @@ import {
 } from "lucide-react";
 import starradiology_logo from "@/assets/starradiology_logo.png";
 import loginImage from "@/assets/hero-diagnostic.png";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,6 +18,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const login = async () => {
     try {
@@ -42,21 +46,14 @@ export default function Login() {
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
 
-      {/* 🌄 LEFT SIDE – IMAGE (NO BLUR) */}
       <div className="relative hidden lg:block">
         <img
           src={loginImage}
           className="absolute inset-0 w-full h-full object-cover"
           alt="Login Visual"
         />
-
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50" />
-
- {/* Branding */}
 <div className="relative z-10 flex flex-col h-full justify-center items-center p-12 text-white text-center">
-
-  {/* Center Content */}
   <div className="max-w-lg space-y-4">
     <h1 className="text-4xl font-bold leading-tight">
       Admin Control Panel
@@ -67,27 +64,21 @@ export default function Login() {
       images and system configurations for Star Radiology.
     </p>
   </div>
-
-  {/* Footer */}
   <p className="absolute bottom-8 text-xs text-slate-300">
     © {new Date().getFullYear()} Star Radiology
   </p>
 </div>
 
       </div>
-
-{/* 🔐 RIGHT SIDE – LOGIN FORM */}
 <div className="flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-6">
-
+ <div className="flex flex-col items-center">
   <div
-    className="w-full max-w-md rounded-2xl 
+    className="w-[440px] max-w-full rounded-2xl
                border border-slate-200
                bg-white/80 backdrop-blur-lg
                shadow-[0_10px_40px_rgba(0,0,0,0.12)]
                p-8 space-y-6"
   >
-
-    {/* Logo + Heading */}
     <div className="flex flex-col items-center gap-3 text-center">
       <img
         src={starradiology_logo}
@@ -104,14 +95,11 @@ export default function Login() {
       </p>
     </div>
 
-    {/* Error */}
     {error && (
       <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg px-4 py-2 text-center">
         {error}
       </div>
     )}
-
-    {/* Email */}
     <div className="space-y-1">
       <label className="text-xs font-medium text-slate-600">
         Email
@@ -124,7 +112,7 @@ export default function Login() {
         />
 
         <input
-          placeholder="admin@starradiology.com"
+          placeholder="admin@gmail.com"
           className="w-full pl-10 pr-4 py-3 rounded-lg
                      bg-white border border-slate-300 text-slate-800
                      placeholder:text-slate-400
@@ -137,8 +125,6 @@ export default function Login() {
         />
       </div>
     </div>
-
-    {/* Password */}
     <div className="space-y-1">
       <label className="text-xs font-medium text-slate-600">
         Password
@@ -173,8 +159,6 @@ export default function Login() {
         </button>
       </div>
     </div>
-
-    {/* Login Button */}
     <button
       onClick={login}
       disabled={loading}
@@ -196,12 +180,10 @@ export default function Login() {
         "Login"
       )}
     </button>
-
-    {/* Links */}
 <div className="flex justify-between text-sm mt-2">
 
   <button
-    onClick={() => window.location.href = "/forgot-password"}
+    onClick={() => navigate("#")}
     className="text-blue-600 hover:underline"
   >
     Forgot password?
@@ -213,11 +195,25 @@ export default function Login() {
   >
     Need help? Contact support
   </a>
-
+</div>
+  </div>
+<div className="mt-6 text-center">
+  <span className="text-sm text-slate-400">
+    Powered by{" "}
+    <a
+      href="https://xcentic.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-bold tracking-widest text-slate-600 
+                 hover:text-blue-700 transition"
+    >
+      XCENTIC
+    </a>
+  </span>
+</div>
 </div>
 
-
-  </div>
+  
 </div>
 
     </div>

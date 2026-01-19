@@ -30,11 +30,7 @@ const About = () => {
       <Header />
 
       <main className="pt-10 pb-28 overflow-hidden">
-
-{/* HERO */}
 <section className="relative px-6 pt-1">
-
-  {/* Glow */}
   <div className="absolute inset-0 -z-10">
     <div className="absolute top-[-140px] left-1/2 -translate-x-1/2 
                     w-[720px] h-[720px] 
@@ -45,8 +41,6 @@ const About = () => {
   </div>
 
   <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-    {/* LEFT CONTENT */}
     <div className="max-w-xl font-sans">
 
 <motion.h1
@@ -65,11 +59,6 @@ const About = () => {
     For Everyone
   </span>
 </motion.h1>
-
-
-
-
-      {/* Intro */}
       <motion.p
         initial="hidden"
         whileInView="visible"
@@ -87,8 +76,6 @@ const About = () => {
         standards of quality and patient care.
         </p>
       </motion.p>
-
-      {/* Section 1 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -106,8 +93,6 @@ const About = () => {
           precise visualization across all major medical disciplines.
         </p>
       </motion.div>
-
-      {/* Section 2 */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -126,8 +111,6 @@ const About = () => {
       </motion.div>
 
     </div>
-
-    {/* RIGHT IMAGE */}
 <motion.div
   initial={{ opacity: 0, y: 40, scale: 0.94 }}
   whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -141,8 +124,6 @@ const About = () => {
     className="w-full max-w-[460px] h-[360px] object-cover 
                rounded-3xl shadow-2xl -translate-y-6 mt-14"
   />
-
-  {/* Soft highlight border instead of blur */}
   <div
     className="absolute inset-0 rounded-3xl 
                ring-1 ring-white/30 
@@ -153,9 +134,6 @@ const About = () => {
 
   </div>
 </section>
-
-
-        {/* STATS */}
         <section className="mt-32 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -208,22 +186,15 @@ className="
           </div>
         </section>
 
-        {/* WORKFLOW IMAGE */}
         <section className="mt-32 px-6">
           <div className="max-w-7xl mx-auto relative">
-
-            {/* Glow */}
             <div className="absolute inset-0 flex justify-center items-center -z-10">
               <div className="w-[700px] h-[300px] bg-blue-500/20 blur-[140px] rounded-full" />
             </div>
-
-{/* Workflow Heading */}
 <div className="text-center mb-10">
   <h2 className="text-3xl md:text-4xl font-bold text-blue-900 tracking-tight">
     Our Digital Workflow
   </h2>
-
-  {/* Accent line */}
   <div className="mx-auto mt-2 h-[3px] w-20 rounded-full 
                   bg-gradient-to-r from-blue-700 to-blue-400" />
 
@@ -264,20 +235,14 @@ className="
 
           </div>
         </section>
-
-{/* VALUES */}
 <section className="mt-32 px-6  text-center">
   <div className="max-w-7xl mx-auto">
-
-{/* Heading */}
 <div className="mb-14 relative">
   <div className="inline-flex flex-col items-center">
 
     <h2 className="text-3xl md:text-4xl font-bold text-blue-900 tracking-tight">
       Our Core Values
     </h2>
-
-    {/* Accent Line */}
     <div className="mt-2 h-[3px] w-16 rounded-full bg-gradient-to-r from-blue-700 to-blue-400" />
 
   </div>
@@ -288,9 +253,6 @@ className="
 </p>
 
 </div>
-
-
-    {/* Cards */}
     <div className="grid md:grid-cols-4 gap-8">
       {[
         {
@@ -343,8 +305,6 @@ className="
   transition duration-300
   shadow-[0_0_18px_rgba(59,130,246,0.35)]
 " />
-
-          {/* Icon */}
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
               <item.icon className="h-5 w-5" />
@@ -354,8 +314,6 @@ className="
               {item.title}
             </h3>
           </div>
-
-          {/* Description */}
           <p className="text-sm leading-relaxed text-slate-600">
             {item.desc}
           </p>

@@ -18,14 +18,10 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 to-slate-200">
-
-      {/* ✅ NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 
                   bg-white/90 backdrop-blur-xl 
                   border-b border-slate-200 shadow-md">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-
-          {/* Logo */}
           <div
             onClick={() => navigate("/admin-image-manager")}
             className="flex items-center gap-3 cursor-pointer"
@@ -44,8 +40,6 @@ export default function AdminLayout() {
               </p>
             </div>
           </div>
-
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2">
 
             <NavButton
@@ -74,8 +68,6 @@ export default function AdminLayout() {
             </button>
 
           </div>
-
-          {/* Mobile Toggle */}
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden p-2 rounded-lg hover:bg-slate-100"
@@ -84,8 +76,6 @@ export default function AdminLayout() {
           </button>
 
         </div>
-
-        {/* Mobile Menu */}
         {open && (
           <div className="md:hidden border-t bg-white/95 backdrop-blur-xl px-4 py-4 space-y-2">
 
@@ -119,20 +109,15 @@ export default function AdminLayout() {
           </div>
         )}
       </header>
-
-      {/* ✅ PAGE CONTENT */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 pt-24 pb-6">
 
         <Outlet />
       </main>
 
-      {/* ✅ FOOTER */}
       <Footer />
     </div>
   );
 }
-
-/* ---------------- Components ---------------- */
 
 function NavButton({
   icon,

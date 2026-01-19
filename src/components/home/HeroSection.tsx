@@ -3,6 +3,7 @@ import { ArrowRight, Shield, Clock, Award, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import fallbackHero from "@/assets/hero-diagnostic.jpg";
+import { useEffect, useState } from "react";
 
 
 const stats = [
@@ -11,14 +12,6 @@ const stats = [
   { value: 25, suffix: "+", label: "Years Experience" },
   { value: 24, suffix: "/7", label: "Emergency Support" },
 ];
-
-
-import { useEffect, useState } from "react";
-
-
-
-
-
 
 const Counter = ({ end, duration = 1500, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -62,7 +55,7 @@ useEffect(() => {
 
       const data = await res.json();
 
- const hero = data[0];   // pehli image use karo
+ const hero = data[0];   
 
  if (hero?.url) {
   setHeroImage(hero.url);
@@ -73,7 +66,7 @@ useEffect(() => {
         setHeroImage(hero.url);
       }
     } catch (err) {
-      console.error("❌ Failed to load hero image", err);
+      console.error("Failed to load hero image", err);
     }
   };
 
@@ -82,13 +75,11 @@ useEffect(() => {
 
 
 useEffect(() => {
-  console.log("🖼 heroImage state:", heroImage);
 }, [heroImage]);
 
 
   return (
 <section className="relative min-h-[calc(100vh-96px)] flex items-center overflow-hidden pt-35 pb-8">
-      {/* Background Image */}
       <div className="absolute inset-0">
         <img
   src={
@@ -137,7 +128,6 @@ useEffect(() => {
               </Link>
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, index) => (
                 <motion.div
@@ -163,7 +153,7 @@ useEffect(() => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden lg:block"
           >
-            {/* Decorative elements */}
+
             <div className="relative">
               <div className="w-72 h-72 bg-primary/20 rounded-full blur-3xl absolute inset-0 m-auto pointer-events-none" />
 <div className="w-52 h-52 bg-teal/20 rounded-full blur-3xl absolute bottom-10 right-10 pointer-events-none" />
@@ -173,7 +163,6 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -4,7 +4,7 @@
 // import { motion } from "framer-motion";
 // import { X } from "lucide-react";
 
-// // ✅ Example Images (replace with your real assets)
+// // Example Images (replace with your real assets)
 // import img1 from "@/assets/gallery/gallery1.jpg";
 // import img2 from "@/assets/gallery/gallery2.jpg";
 // import img3 from "@/assets/gallery/gallery3.jpg";

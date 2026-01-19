@@ -7,7 +7,6 @@ import {
   Image as ImageIcon,
 } from "lucide-react";
 
-/* ================= CONFIG ================= */
 
 const PAGE_TYPES = ["landing", "services"] as const;
 
@@ -45,7 +44,6 @@ const SERVICES = [
 type ToastType = "success" | "error";
 type PageType = typeof PAGE_TYPES[number] | "";
 
-/* ================= COMPONENT ================= */
 
 export default function ImageUploader() {
   const fileRef = useRef<HTMLInputElement | null>(null);
@@ -74,7 +72,6 @@ export default function ImageUploader() {
     }, 2500);
   };
 
-  /* ✅ Upload Rules */
   const isLanding = pageType === "landing";
   const canSelectFile = Boolean(pageType && section);
 const canUpload = isLanding
@@ -82,9 +79,6 @@ const canUpload = isLanding
       ? Boolean(pageType && section && serviceName && file)
       : Boolean(pageType && section && file)
   : Boolean(pageType && section && keyName && file);
-
-
-  /* ================= FILE HANDLING ================= */
 
   const handleFile = (f: File) => {
     setFile(f);
@@ -105,8 +99,6 @@ const canUpload = isLanding
     setProgress(0);
   };
 
-  /* ================= UPLOAD ================= */
-
   const uploadImage = async () => {
     if (!canUpload) {
       showToast("error", "Please select all fields");
@@ -120,20 +112,16 @@ fd.append("page", pageType);
 
 if (isLanding && section === "services") {
   fd.append("section", "services");
-  fd.append("key", serviceName);   // pathology / mri / ctscan
+  fd.append("key", serviceName);   
 }
 else if (isLanding) {
-  fd.append("section", section);   // banner
+  fd.append("section", section);   
   fd.append("key", "HeroImage");
 }
 else {
-  fd.append("section", section);   // ctscan
-  fd.append("key", keyName);       // HeroImage / Machine1
+  fd.append("section", section);   
+  fd.append("key", keyName);       
 }
-
-
-
-
     try {
       setLoading(true);
       setProgress(0);
@@ -141,7 +129,6 @@ else {
       const xhr = new XMLHttpRequest();
       xhr.open("POST", "http://localhost:5000/api/images/upload");
 
-      // Upload Progress
       xhr.upload.onprogress = (e) => {
         if (e.lengthComputable) {
           const percent = Math.round((e.loaded / e.total) * 100);
@@ -149,7 +136,6 @@ else {
         }
       };
 
-      // Response
       xhr.onload = () => {
         setLoading(false);
 
@@ -196,12 +182,8 @@ else {
     }
   };
 
-  /* ================= UI ================= */
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br mb-20">
-
-      {/* Toast */}
       {toast.show && (
         <div
           className={`fixed top-5 right-5 z-50 px-4 py-3 rounded-lg shadow-lg flex items-center gap-2 text-sm
@@ -217,19 +199,13 @@ else {
       )}
 
       <div className="w-full max-w-3xl rounded-3xl border bg-white/50 backdrop-blur-2xl shadow-xl p-6 space-y-6">
-
-        {/* Header */}
         <div className="text-center">
           <h1 className="text-xl font-semibold">Image Upload Manager</h1>
           <p className="text-sm text-slate-600">
             Upload images dynamically for landing & services pages
           </p>
         </div>
-
-        {/* ================= SELECTORS ================= */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          {/* Page Type */}
           <div>
             <label className="text-sm font-medium">Page Type</label>
             <select
@@ -246,8 +222,6 @@ else {
               <option value="services">Services</option>
             </select>
           </div>
-
-          {/* Section */}
           <div>
             <label className="text-sm font-medium">Section</label>
             <select
@@ -273,8 +247,6 @@ else {
                 ))}
             </select>
           </div>
-
-          {/* Image Type (Disabled for Landing) */}
           <div>
             <label className="text-sm font-medium">Image Type</label>
             <select
@@ -294,8 +266,6 @@ else {
                 </>
               )}
             </select>
-
-            {/* ✅ Select Service (Only for Landing → Services) */}
 {isLanding && section === "services" && (
   <div>
     <label className="text-sm font-medium">Select Service</label>
@@ -318,8 +288,6 @@ else {
           </div>
 
         </div>
-
-        {/* ================= UPLOAD AREA ================= */}
         <div className="relative rounded-2xl border bg-white/40 p-4 space-y-4 min-h-[320px] flex flex-col justify-between">
 
           <div
@@ -365,8 +333,6 @@ else {
               </div>
             )}
           </div>
-
-          {/* Progress */}
           {loading && (
             <div className="h-3 rounded-full overflow-hidden bg-white/40 border">
               <div
@@ -375,8 +341,6 @@ else {
               />
             </div>
           )}
-
-          {/* Actions */}
           <div className="flex gap-3">
             <button
               onClick={uploadImage}
