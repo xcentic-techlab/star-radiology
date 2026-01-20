@@ -115,7 +115,7 @@ useEffect(() => {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-12">
-<Link to="/book-appointment">
+<Link to="/">
   <Button className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-md shadow-lg flex items-center gap-2">
     Book Appointment
     <ArrowRight className="h-5 w-5" />
