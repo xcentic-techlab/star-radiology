@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL;
+// const API = import.meta.env.VITE_API_URL;
 export const fetchImages = async (
   type: string,
   page: string,
@@ -7,13 +7,13 @@ export const fetchImages = async (
   let url = "";
 
 if (type === "landingpage" && section === "services") {
-  url = `${API}/api/images/landing/services`;
+  url = `/api/images/landing/services`;
 }
 else if (type === "landingpage") {
-  url = `${API}/api/images/page/${section}`;
+  url = `/api/images/page/${section}`;
 }
 else if (type === "services") {
-  url = `${API}/api/images/services/${page.toLowerCase()}/${section}`;
+  url = `/api/images/services/${page.toLowerCase()}/${section}`;
 }
 
   const res = await fetch(url);
@@ -21,13 +21,13 @@ else if (type === "services") {
 };
 
 export const deleteImage = async (id: string) => {
-  await fetch(`${API}/api/images/${id}`, { method: "DELETE" });
+  await fetch(`/api/images/${id}`, { method: "DELETE" });
 };
 
 
 
 export const uploadImage = async (formData: FormData) => {
-  const res = await fetch(`${API}/upload`, {
+  const res = await fetch(`/upload`, {
     method: "POST",
     body: formData,
   });

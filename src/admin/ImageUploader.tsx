@@ -7,7 +7,7 @@ import {
   Image as ImageIcon,
 } from "lucide-react";
 
-const API = import.meta.env.VITE_API_URL;
+// const API = import.meta.env.VITE_API_URL;
 
 const PAGE_TYPES = ["landing", "services"] as const;
 
@@ -128,7 +128,7 @@ else {
       setProgress(0);
 
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", `${API}/api/images/upload`);
+      xhr.open("POST", `/api/images/upload`);
 
       xhr.upload.onprogress = (e) => {
         if (e.lengthComputable) {

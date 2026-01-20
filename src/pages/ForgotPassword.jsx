@@ -6,10 +6,10 @@ export default function ForgotPassword() {
   const [step, setStep] = useState(1);
   const [message, setMessage] = useState("");
   
-  const API = import.meta.env.VITE_API_URL;
+  // const API = import.meta.env.VITE_API_URL;
 
   const sendOtp = async () => {
-    const res = await fetch(`${API}/api/auth/send-otp`, {
+    const res = await fetch(`/api/auth/send-otp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -25,7 +25,7 @@ export default function ForgotPassword() {
   };
 
   const verifyOtp = async () => {
-    const res = await fetch(`${API}/api/auth/verify-otp`, {
+    const res = await fetch(`/api/auth/verify-otp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),

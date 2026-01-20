@@ -2,13 +2,13 @@ import ServicesLayout from "../ServicesLayout";
 import { ultrasoundData } from "./UltrasoundData";
 import { useEffect, useState } from "react";
 
-const API = import.meta.env.VITE_API_URL;
+// const API = import.meta.env.VITE_API_URL;
 
 export default function UltrasoundPage() {
     const [backendImages, setBackendImages] = useState({});
   
     useEffect(() => {
-    fetch(`${API}/api/images/services/ultrasound`)
+    fetch(`/api/images/services/ultrasound`)
       .then(res => res.json())
       .then(data => {
         const obj = {};

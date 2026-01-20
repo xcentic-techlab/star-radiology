@@ -2,14 +2,14 @@ import ServicesLayout from "../ServicesLayout";
 import { xrayData } from "./xrayData";
 import { useEffect, useState } from "react";  
 
-const API = import.meta.env.VITE_API_URL;
+// const API = import.meta.env.VITE_API_URL;
 
 export default function XRayPage() {
 
     const [backendImages, setBackendImages] = useState({});
   
     useEffect(() => {
-    fetch(`${API}/api/images/services/xray`)
+    fetch(`/api/images/services/xray`)
       .then(res => res.json())
       .then(data => {
         const obj = {};
