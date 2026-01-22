@@ -80,7 +80,7 @@ useEffect(() => {
 
 
   return (
-<section className="relative min-h-[calc(100vh-96px)] flex items-center overflow-hidden pt-35 pb-8">
+<section className="relative min-h-[calc(100vh-96px)] flex items-center overflow-hidden pt-24 pb-8">
       <div className="absolute inset-0">
         <img
   src={
@@ -101,26 +101,50 @@ useEffect(() => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-display text-[2.75rem] md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-6">
-              Your Health is Our
-              <span className="text-primary block 
-  [text-shadow:1px_0_0_white,-1px_0_0_white,0_1px_0_white,0_-1px_0_white]">
-  Top Priority
-</span>
+<h1
+  className="font-display 
+  text-2xl 
+  sm:text-3xl 
+  md:text-5xl 
+  lg:text-5xl 
+  font-bold 
+  tracking-tight 
+  text-white 
+  leading-tight 
+  mb-6"
+>
+  <span className="block whitespace-normal sm:whitespace-nowrap">
+    Best Diagnostic Centre &amp;
+  </span>
 
-            </h1>
+  <span className="block pt-1">
+    Pathology Lab in Noida
+  </span>
+
+  <span
+    className="block text-primary
+    [text-shadow:1px_0_0_white,-1px_0_0_white,0_1px_0_white,0_-1px_0_white] pt-1"
+  >
+    Star Radiology
+  </span>
+</h1>
+
             <p className="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              Experience world-class diagnostic services with cutting-edge technology, 
-              expert professionals, and compassionate care. Accurate results, faster delivery.
+             Looking for a diagnostic centre and pathology lab near me in Noida? Star Radiology offers MRI, CT Scan, X-Ray, Ultrasound & lab tests with accurate reports.
             </p>
             
             <div className="flex flex-wrap gap-4 mb-12">
-<Link to="/">
+<a
+  href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+  target="_blank"
+  rel="noopener noreferrer"
+>
   <Button className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg rounded-md shadow-lg flex items-center gap-2">
     Book Appointment
     <ArrowRight className="h-5 w-5" />
   </Button>
-</Link>
+</a>
+
 
               <Link to="/services/pathology">
                 <Button variant="hero-outline" size="xl">

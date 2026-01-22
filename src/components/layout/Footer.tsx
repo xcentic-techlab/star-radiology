@@ -5,6 +5,14 @@ import starradiology_logo from "@/assets/starradiology_logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const socialLinks = [
+  { Icon: Facebook, url: "https://www.facebook.com/starradiology" },
+  { Icon: Instagram, url: "https://www.instagram.com/starradiologyservices/" },
+  { Icon: Linkedin, url: "https://www.linkedin.com/company/starradiology/" },
+  { Icon: Youtube, url: "https://www.youtube.com/@starradiology5872" },
+];
+
+
 
   return (
     <div className="bg-transparent pt-12">
@@ -30,54 +38,80 @@ const Footer = () => {
                 Your trusted partner in healthcare diagnostics. We combine advanced technology with compassionate care to deliver accurate and timely results.
               </p>
               <div className="flex gap-3">
-                {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
-                  >
-                    <Icon className="h-5 w-5 text-white" />
-                  </a>
-                ))}
+
+<div className="flex gap-3">
+  {socialLinks.map(({ Icon, url }, index) => (
+    <a
+      key={index}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+    >
+      <Icon className="h-5 w-5 text-white" />
+    </a>
+  ))}
+</div>
+
               </div>
             </div>
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Quick Links</h4>
-              <ul className="space-y-3">
-                {["About Us", "Book Appointment", "Contact Us"].map((link) => (
-                  <li key={link}>
-                    <Link
-                      to={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
-                    >
-                      
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+ <ul className="space-y-3">
+  {["About Us", "Book Appointment", "Contact Us"].map((link) => (
+    <li key={link}>
+      {link === "Book Appointment" ? (
+        <a
+          href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
+        >
+          {link}
+        </a>
+      ) : (
+        <Link
+          to={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
+          className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
+        >
+          {link}
+        </Link>
+      )}
+    </li>
+  ))}
+</ul>
+
             </div>
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Our Services</h4>
-              <ul className="space-y-3">
-                {["Pathology", "Radiology", "MRI", "CT-Scan", "X-Ray", "Ultrasound"].map((service) => (
-                  <li key={service}>
-                    <Link
-                      to={`/services/${service.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
-                    >
-                      
-                      {service}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+<div className="grid grid-cols-2 gap-x-8 gap-y-3">
+  {[
+    "Pathology",
+    "Radiology",
+    "CT-Scan",
+    "X-Ray",
+    "Ultrasound",
+    "Echo",
+    "TMT",
+    "ECG",
+    "PFT",
+  ].map((service) => (
+    <Link
+      key={service}
+      to={`/services/${service.toLowerCase()}`}
+      className="text-white/70 hover:text-primary transition-colors flex items-center gap-2"
+    >
+      {service}
+    </Link>
+  ))}
+</div>
+</div>
+
             <div>
               <h4 className="font-display font-semibold text-lg text-white mb-6">Contact Info</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                  <MapPin className="h-12 w-12 text-primary mt-1" />
                   <span className="text-white/70">KO-01, SECTOR-122,Noida Gautam Buddha Nagar,Uttar Pradesh-201301,</span>
                 </li>
                 <li className="flex items-center gap-3">
@@ -87,14 +121,14 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <a href="mailto:info@starradiology.com" className="text-white/70 hover:text-primary transition-colors">
-                    info@starradiology.com
+                  <Mail className="h-5 w-5 text-primary shrink-0" />
+                  <a href="mailto:info@starradiodiagnostic.com" className="text-white/70 hover:text-primary transition-colors">
+                     info@starradiodiagnostic.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span className="text-white/70">Mon - Sat: 9:00 AM - 5:00 PM</span>
+                  <span className="text-white/70">All Days || 24/7</span>
                 </li>
               </ul>
             </div>
@@ -107,10 +141,10 @@ const Footer = () => {
                 text-white/60 text-sm">
   <p>© {currentYear} Lifeline Diagnostics. All rights reserved.</p>
   <div className="flex gap-6">
-    <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+    <Link to="/" className="hover:text-primary transition-colors">
       Privacy Policy
     </Link>
-    <Link to="/terms-of-service" className="hover:text-primary transition-colors">
+    <Link to="/" className="hover:text-primary transition-colors">
       Terms of Service
     </Link>
   </div>

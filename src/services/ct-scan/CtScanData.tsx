@@ -5,14 +5,12 @@ import machine2 from "../../../src/assets/ct-scan/machine2.jpg";
 import machine3 from "../../../src/assets/ct-scan/machine3.jpg";
 
 export const ctScanData = {
-  title: "CT Scan Imaging Services",
+  title: "CT Scan in Noida | Star Radiology & Diagnostics Centre",
 
   subtitle: "High Precision • Low Radiation • Rapid Diagnostic Imaging",
 
   description: `
-Computed Tomography (CT Scan) is an advanced imaging technique that combines X-ray technology with computer processing to create highly detailed cross-sectional images of the body.
-
-At Star Radiology, our multi-slice CT scanners deliver ultra-fast imaging with superior resolution, enabling doctors to diagnose complex medical conditions accurately. Our low-dose radiation protocols ensure maximum patient safety while maintaining exceptional image clarity for confident clinical decision-making.
+Get advanced CT scan services near me in Noida at Star Radiology & Diagnostics Centre — painless, accurate imaging for head, abdomen, chest, spine & more.
 `,
 
   heroImage: heroImg,

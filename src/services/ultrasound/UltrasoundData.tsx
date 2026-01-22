@@ -5,13 +5,11 @@ import machine2 from "../../../src/assets/ultrasound/machine2.jpg";
 import machine3 from "../../../src/assets/ultrasound/machine3.jpg";
 
 export const ultrasoundData = {
-  title: "Advanced Ultrasound Diagnostic Services",
+  title: "Ultrasound Services in Noida | Star Radiology & Diagnostics Centre",
 
   subtitle: "Safe, Radiation-Free & Real-Time Imaging",
   description: `
-Star Radiology provides advanced ultrasound diagnostic services using high-resolution Doppler and real-time imaging technology. Ultrasound enables safe visualization of internal organs, blood flow, pregnancy development and musculoskeletal structures without radiation exposure.
-
-Our experienced sonographers perform precise examinations while maintaining maximum patient comfort and safety. Ultrasound plays a crucial role in early disease detection, pregnancy monitoring, abdominal assessment and vascular evaluation.
+Advanced ultrasound services near me in Noida at Star Radiology & Diagnostics Centre — high-quality sonography for abdomen, pelvis, pregnancy & general health exams.
 `,
   heroImage: heroImg,
 

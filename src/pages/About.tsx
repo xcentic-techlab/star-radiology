@@ -14,6 +14,8 @@ import {
 
 import aboutImg from "@/assets/about.jpg";
 import doctorImg from "@/assets/about1.jpg";
+import { Helmet } from "react-helmet-async";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -26,10 +28,49 @@ const fadeUp = {
 
 const About = () => {
   return (
+    <>
+
+      <Helmet>
+    <title>About Star Radiology & Diagnostics Centre in Noida | Trusted Care</title>
+
+    <meta
+      name="description"
+      content="Know more about Star Radiology & Diagnostics Centre in Noida, a trusted diagnostic centre near me offering advanced radiology, pathology, and accurate reports."
+    />
+
+    <meta
+      name="keywords"
+      content="star radiology diagnostics centre in noida, diagnostic centre in noida, pathology lab in noida, radiology centre in noida, diagnostic centre near me in noida"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://starradiodiagnostic.com/about-us" />
+    <meta
+      property="og:title"
+      content="About Star Radiology & Diagnostics Centre in Noida | Trusted Care"
+    />
+    <meta
+      property="og:description"
+      content="Know more about Star Radiology & Diagnostics Centre in Noida, a trusted diagnostic centre near me offering advanced radiology, pathology, and accurate reports."
+    />
+    <meta property="og:site_name" content="Star Radiology & Diagnostics Centre" />
+    <meta property="og:locale" content="en_IN" />
+    <meta
+      property="og:image"
+      content="https://starradiodiagnostic.com/assets/about1-DiZle_0_.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="About Star Radiology & Diagnostics Centre in Noida"
+    />
+  </Helmet>
+
+
+
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Header />
 
-      <main className="pt-16 sm:pt-24 md:pt-28 pb-20 sm:pb-24 overflow-hidden">
+      <main className="pt-10 sm:pt-24 md:pt-28 pb-20 sm:pb-24 overflow-hidden">
         <section className="relative px-3 sm:px-6 pt-2 sm:pt-4">
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[280px] sm:w-[520px] md:w-[720px] h-[280px] sm:h-[520px] md:h-[720px] bg-blue-400/20 blur-[120px] rounded-full" />
@@ -43,13 +84,13 @@ const About = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[56px] font-semibold leading-tight tracking-tight text-slate-900 mb-3 sm:mb-4"
+                className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[45px] font-semibold leading-tight tracking-tight text-slate-900 mb-3 sm:mb-4"
               >
                 <span className="block sm:inline">
-                  Corporate-Grade Healthcare{" "}
+                  About Star Radiology & Diagnostics Centre in Noida,{" "}
                 </span>
                 <span className="text-blue-900 block sm:inline">
-                  For Everyone
+                  Trusted Care
                 </span>
               </motion.h1>
 
@@ -60,14 +101,8 @@ const About = () => {
                 variants={fadeUp}
                 className="text-slate-700 text-[14px] sm:text-[15px] md:text-[17px] leading-relaxed mb-5 sm:mb-6"
               >
-                <h3 className="pt-2 sm:pt-3 text-blue-900 text-[18px] sm:text-[20px] md:text-[24px] font-semibold mb-2">
-                  About Star Radiology
-                </h3>
                 <p>
-                  Star Radiology was envisioned to bring corporate-style healthcare closer
-                  to local communities. Our focus is on delivering accessible, efficient
-                  and cost-effective medical services while maintaining the highest
-                  standards of quality and patient care.
+                  Know more about Star Radiology & Diagnostics Centre in Noida, a trusted diagnostic centre near me offering advanced radiology, pathology, and accurate reports.
                 </p>
               </motion.div>
 
@@ -242,6 +277,7 @@ const About = () => {
         </section>
       </main>
     </div>
+        </>
   );
 };
 

@@ -5,15 +5,12 @@ import machine2 from "../../../src/assets/xray/machine2.png";
 import machine3 from "../../../src/assets/xray/machine3.jpg";
 
 export const xrayData = {
-  title: "Digital X-Ray Imaging Services",
+  title: "X-Ray Services in Noida | Digital X-Ray | Star Radiology",
 
   subtitle: "Fast, Accurate & Low Radiation Diagnostic Imaging",
 
   description: `
-Star Radiology provides advanced digital X-ray imaging services for rapid and accurate diagnosis of bone, chest and orthopedic conditions. 
-Our state-of-the-art digital radiography systems produce high-resolution images instantly while maintaining minimal radiation exposure for patient safety.
-
-With fast reporting and expert radiologist interpretation, patients receive reliable diagnostic results without long waiting times. Digital X-ray plays a crucial role in trauma evaluation, respiratory diagnosis and routine health screening.
+Advanced X-Ray services near me in Noida at Star Radiology & Diagnostics — digital imaging for bones, chest, spine & joints with fast, accurate reports.
 `,
 
   heroImage: heroImg,

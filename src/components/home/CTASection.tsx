@@ -33,18 +33,23 @@ const CTASection = () => {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <Link to="/book-appointment">
-                  <Button
-                    size="xl"
-                    className="group bg-white text-primary hover:bg-white/90 shadow-lg"
-                  >
-                    <Calendar className="h-5 w-5 mr-2" />
-                    Book Appointment
-                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+<a
+  href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button
+    size="xl"
+    className="group bg-white text-primary hover:bg-white/90 shadow-lg"
+  >
+    <Calendar className="h-5 w-5 mr-2" />
+    Book Appointment
+    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+  </Button>
+</a>
 
-                <a href="tel:+919818400832">
+
+                <a href="tel:+91-9711119014">
                   <Button
                     size="xl"
                     className="border-white bo text-white hover:bg-white/10"
@@ -66,19 +71,19 @@ const CTASection = () => {
                 {
                   icon: Phone,
                   title: "24/7 Helpline",
-                  info: "+91-9711119014,+91-9711119015",
+                  info: "+91-9711119014, +91-9711119015",
                   subtext: "Toll free support",
                 },
                 {
                   icon: Calendar,
                   title: "Working Hours",
-                  info: "Mon – Sat: 7AM – 9PM",
-                  subtext: "Sunday: 8AM – 2PM",
+                  info: "All Days",
+                  subtext: "24/7 Service",
                 },
                 {
                   icon: MapPin,
                   title: "Our Locations",
-                  info: "100+ Diagnostic Centers",
+                  info: "KO-01, SECTOR-122,Noida Gautam Buddha Nagar,Uttar Pradesh-201301",
                   subtext: "Across major cities",
                 },
               ].map((item, index) => (

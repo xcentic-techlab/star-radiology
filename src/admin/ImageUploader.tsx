@@ -16,29 +16,28 @@ const LANDING_SECTIONS = [
   "services",
 ];
 
-const SERVICE_SECTIONS = [
-  "pathology",
-  "radiology",
-  "mri",
-  "ctscan",
-  "xray",
-  "ultrasound",
+const SERVICES = [
+  { label: "Pathology", value: "pathology" },
+  { label: "Radiology", value: "radiology" },
+  { label: "CT Scan", value: "ctscan" },
+  { label: "Digital X-Ray", value: "xray" },
+  { label: "Ultrasound", value: "ultrasound" },
+    // { label: "MRI", value: "mri" },
+  { label: "Echocardiogram Test", value: "echocardiogram" },
+  { label: "Treadmill Test", value: "tmt" },
+  { label: "Electrocardiogram", value: "ecg" },
+  { label: "Pulmonary Function Test", value: "pft" },
 ];
+
+
+const SERVICE_SECTIONS = SERVICES.map(s => s.value);
+
 
 const IMAGE_KEYS = [
   "HeroImage",
   "Machine1",
   "Machine2",
   "Machine3",
-];
-
-const SERVICES = [
-  "pathology",
-  "radiology",
-  "mri",
-  "ctscan",
-  "xray",
-  "ultrasound",
 ];
 
 
@@ -276,11 +275,12 @@ else {
       className="mt-1 w-full rounded-md border px-3 py-2 text-sm"
     >
       <option value="">Select Service</option>
-      {SERVICES.map((s) => (
-        <option key={s} value={s}>
-          {s.toUpperCase()}
-        </option>
-      ))}
+{SERVICES.map((s) => (
+  <option key={s.value} value={s.value}>
+    {s.label}
+  </option>
+))}
+
     </select>
   </div>
 )}

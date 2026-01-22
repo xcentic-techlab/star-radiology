@@ -5,10 +5,46 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white pt-0 mt-0">
+    <>
+          <Helmet>
+        <title>Contact Star Radiology & Diagnostics Centre in Noida</title>
+
+        <meta
+          name="description"
+          content="Contact Star Radiology & Diagnostics Centre in Noida for MRI, CT Scan, X-Ray, Ultrasound & pathology services. Call or visit a diagnostic centre near me."
+        />
+
+        <meta
+          name="keywords"
+          content="contact diagnostic centre in noida, diagnostic centre near me in noida, star radiology diagnostics contact, radiology centre contact noida, pathology lab contact in noida, mri ct scan x ray ultrasound noida, best diagnostic centre in noida contact, diagnostic clinic near me"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://starradiodiagnostic.com/contact-us" />
+        <meta
+          property="og:title"
+          content="Contact Star Radiology & Diagnostics Centre in Noida"
+        />
+        <meta
+          property="og:description"
+          content="Contact Star Radiology & Diagnostics Centre in Noida for MRI, CT Scan, X-Ray, Ultrasound & pathology services. Call or visit a diagnostic centre near me."
+        />
+        <meta property="og:site_name" content="Star Radiology & Diagnostics Centre" />
+        <meta property="og:locale" content="en_IN" />
+        <meta
+          property="og:image"
+          content="https://starradiodiagnostic.com/assets/hero-diagnostic-Zo8Vstyf.jpg"
+        />
+        <meta
+          property="og:image:alt"
+          content="Contact Star Radiology & Diagnostics Centre Noida"
+        />
+      </Helmet>
+          <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white pt-0 mt-0">
       <Header />
 
       <main className="pt-16 sm:pt-20 pb-10">
@@ -24,16 +60,11 @@ const Contact = () => {
             </p>
 
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
-              We're Here To Help You With{" "}
-              <span className="block text-blue-900 font-bold">
-                Your Diagnostic Needs
-              </span>
+              Contact Star Radiology & Diagnostics Centre in Noida
             </h1>
 
             <p className="mt-3 sm:mt-5 text-sm sm:text-base text-slate-600 leading-relaxed">
-              Have questions about our services, appointments, reports or
-              diagnostics? Our support team is always ready to assist you with
-              quick and reliable guidance.
+             Contact Star Radiology & Diagnostics Centre in Noida for CT Scan, X-Ray, Ultrasound & pathology services. Call or visit a diagnostic centre near me.
             </p>
           </motion.div>
 
@@ -54,7 +85,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   title: "Email",
-                  info: "info@starradiology.com",
+                  info: "info@starradiodiagnostic.com",
                   sub: "We reply within 24 working hours",
                 },
                 {
@@ -67,8 +98,8 @@ const Contact = () => {
                 {
                   icon: Clock,
                   title: "Working Hours",
-                  info: "Mon – Sat: 9:00 AM – 5:00 PM",
-                  sub: "Sunday closed",
+                  info: "All Days",
+                  sub: "24/7 Service",
                 },
               ].map((item) => (
                 <div
@@ -133,6 +164,8 @@ const Contact = () => {
         </div>
       </main>
     </div>
+    </>
+
   );
 };
 

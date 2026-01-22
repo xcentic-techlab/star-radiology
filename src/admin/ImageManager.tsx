@@ -2,6 +2,19 @@ import { useEffect, useState } from "react";
 import ImageGrid from "./ImageGrid";
 import { fetchImages, deleteImage } from "./api";
 
+const SERVICE_OPTIONS = [
+  { label: "Pathology", value: "pathology" },
+  { label: "MRI", value: "mri" },
+  { label: "CT Scan", value: "ctscan" },
+  { label: "Digital X-Ray", value: "xray" },
+  { label: "Radiology", value: "radiology" },
+  { label: "Ultrasound", value: "ultrasound" },
+  { label: "Echocardiogram Test", value: "echocardiogram" },
+  { label: "Treadmill Test", value: "tmt" },
+  { label: "Electrocardiogram", value: "ecg" },
+  { label: "Pulmonary Function Test", value: "pft" },
+];
+
 const CONFIG = {
   landingpage: {
     pages: ["home"],
@@ -19,10 +32,15 @@ const CONFIG = {
       "XRay",
       "Radiology",
       "Ultrasound",
+      "Echocardiogram Test",
+      "Treadmill Test",
+      "Electrocardiogram",
+      "Pulmonary Function Test"
     ],
     sections: ["hero", "machine1", "machine2", "machine3"],
   },
 };
+
 
 export default function ImageManager() {
   const [type, setType] = useState<"landingpage" | "services">(
@@ -166,11 +184,18 @@ const handleDelete = async (id: string) => {
       }
     `}
   >
-    {CONFIG[type].pages.map((p) => (
+{type === "services"
+  ? SERVICE_OPTIONS.map((s) => (
+      <option key={s.value} value={s.value}>
+        {s.label}
+      </option>
+    ))
+  : CONFIG[type].pages.map((p) => (
       <option key={p} value={p}>
         {p}
       </option>
     ))}
+
   </select>
 
   {type === "landingpage" && (

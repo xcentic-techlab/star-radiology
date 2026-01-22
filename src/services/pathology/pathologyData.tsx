@@ -4,14 +4,12 @@ import machine2 from "../../../src/assets/pathology/machine2.jpg";
 import machine3 from "../../../src/assets/pathology/machine3.jpg";
 
 export const pathologyData = {
-  title: "Pathology & Laboratory Services",
+  title: "Best Pathology Lab & Diagnostic Tests in Noida | Star Radiology",
 
   subtitle: "Accurate, Reliable & NABL Compliant Diagnostic Testing",
 
   description: `
-Pathology plays a critical role in diagnosing diseases, monitoring treatment progress and supporting preventive healthcare. At Star Radiology, our pathology laboratory is equipped with fully automated analyzers, strict quality control systems and highly trained professionals.
-
-We deliver accurate and timely diagnostic reports that help doctors make confident clinical decisions. Our NABL compliant processes ensure consistency, safety and reliability across every test. With digital reporting and home sample collection services, we make diagnostics convenient and accessible for every patient.
+Comprehensive pathology lab services in Noida — blood tests, urine/stool analysis, biochemistry, immunology & health checkups at Star Radiology & Diagnostics Centre near me.
 `,
   heroImage: heroImg,
 

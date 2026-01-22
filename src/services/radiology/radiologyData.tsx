@@ -5,15 +5,13 @@ import machine2 from "../../../src/assets/radiology_img/machine2.jpg";
 import machine3 from "../../../src/assets/radiology_img/machine3.jpg";
 
 export const radiologyData = {
-  title: "Digital Radiology Services",
+  title: "Best Radiology Reporting Services in Noida | Star Radiology",
 
 
   subtitle: "High Precision Imaging with Secure Digital Reporting",
 
   description: `
-Star Radiology provides comprehensive digital radiology services powered by advanced imaging systems and secure digital infrastructure. Our radiology department supports accurate diagnosis for bone, chest, abdominal, trauma, vascular and interventional studies.
-
-By utilizing optimized low-radiation protocols and high-speed digital processing, we ensure maximum patient safety while delivering clear and reliable imaging results. All studies are interpreted by experienced radiologists who maintain strict clinical accuracy and reporting standards.
+Top radiology services near me in Noida — CT Scan, MRI, Digital X-Ray, Ultrasound & Mammography at Star Radiology & Diagnostics Centre with fast, accurate reports.
 `,
 
 

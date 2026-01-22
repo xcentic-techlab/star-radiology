@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import starradiology_logo from "@/assets/starradiology_logo.png"; 
+import { FaWhatsapp } from "react-icons/fa";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -14,10 +15,14 @@ const navItems = [
     children: [
       { name: "Pathology", path: "/services/pathology" },
       { name: "Radiology", path: "/services/radiology" },
-      { name: "MRI", path: "/services/mri" },
+      // { name: "MRI", path: "/services/mri" },
       { name: "CT Scan", path: "/services/ct-scan" },
-      { name: "X-Ray", path: "/services/x-ray" },
+      { name: "Digital X-Ray", path: "/services/x-ray" },
       { name: "Ultrasound", path: "/services/ultrasound" },
+      { name: "Echocardiogram Test", path: "/services/echo" },
+      { name: "Treadmill Test", path: "/services/tmt" },
+      { name: "Electrocardiogram", path: "/services/ecg" },
+      { name: "Pulmonary Function Test", path: "/services/pft" },
     ],
   },
   { name: "Contact", path: "/contact-us" },
@@ -35,31 +40,63 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground py-2 hidden md:block">
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+1800123456" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <Phone className="h-4 w-4" />
-              <span>+91-9711119014, +91-9818400832</span>
-            </a>
-            <a href="mailto:info@starradiology.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<div className="flex flex-wrap items-center gap-6">
+  <a
+    href="tel:+919711119014"
+    className="flex items-center gap-2 text-white transition"
+  >
+    <Phone className="h-4 w-4" />
+    <span>+91-9711119014</span>
+  </a>
+  <a
+    href="tel:+919711119015"
+    className="flex items-center gap-2 text-white transition"
+  >
+    <Phone className="h-4 w-4" />
+    <span>+91-9711119015</span>
+  </a>
+  <a
+    href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-green-500 hover:text-green-600 transition text-sm"
+  >
+    <FaWhatsapp className="h-4 w-4" />
+    <span className="text-white">WhatsApp</span>
+  </a>
+
+</div>
+
+
+
+            <a href="mailto:info@starradiodiagnostic.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>info@starradiology.com</span>
+              <span>info@starradiodiagnostic.com</span>
             </a>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            <span>Mon - Sat: 9:00 AM - 5:00 PM</span>
+            <span>All Days | 24/7</span>
           </div>
         </div>
       </div>
 
       <nav className="bg-card/95 backdrop-blur-md shadow-md">
-        <div className="container mx-auto flex justify-between items-center py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <img 
-              src={starradiology_logo} 
-              alt="Lifeline Diagnostics Logo" 
-              className="h-14 w-auto object-contain"
-            />
-          </Link>
+<div className="container mx-auto flex justify-between items-center py-2">
+  <Link to="/" className="flex flex-col items-center gap-1">
+    <img 
+      src={starradiology_logo} 
+      alt="Star Radiology Logo" 
+      className="h-14 w-auto object-contain"
+    />
+
+    <p className="text-xs text-gray-500 tracking-wide">
+      Assurance of Quality
+    </p>
+  </Link>
+
+
+
 
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
@@ -119,9 +156,17 @@ const Header = () => {
             ))}
           </div>
 
-          <Button className="hidden lg:inline-flex bg-primary/95 hover:bg-primary text-white px-6 py-3 rounded-md shadow-md">
-            Book Appointment
-          </Button>
+<a
+  href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hidden lg:inline-flex"
+>
+  <Button className="bg-primary/95 hover:bg-primary text-white px-6 py-3 rounded-md shadow-md">
+    Book Appointment
+  </Button>
+</a>
+
 
           <button
             className="lg:hidden p-2 rounded-lg hover:bg-accent transition-colors"
@@ -188,10 +233,16 @@ const Header = () => {
                     )}
                   </div>
                 ))}
+<a
+  href="https://wa.me/919711119014?text=Hello%20Star%20Radiology,%20I%20want%20to%20book%20an%20appointment."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button className="mt-4 w-full bg-primary text-white py-3 rounded-md shadow-md">
+    Book Appointment
+  </Button>
+</a>
 
-                <Button className="mt-4 w-full bg-primary text-white py-3 rounded-md shadow-md">
-                  Book Appointment
-                </Button>
 
               </div>
             </motion.div>

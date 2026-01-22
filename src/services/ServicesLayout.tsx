@@ -54,25 +54,27 @@ const ServicesLayout = ({
       <section className="bg-muted/30 py-16 sm:py-24">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center px-4 sm:px-6">
 
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-3">
-              {title}
-            </h1>
+<motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  className="space-y-4 sm:space-y-5"
+>
+  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight">
+    {title}
+  </h1>
 
-            {subtitle && (
-              <p className="text-primary font-medium mb-3 sm:mb-4 text-sm sm:text-base">
-                {subtitle}
-              </p>
-            )}
+  {subtitle && (
+    <p className="text-primary font-semibold text-sm sm:text-base">
+      {subtitle}
+    </p>
+  )}
 
-            <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed">
-              {description}
-            </p>
-          </motion.div>
+  <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl">
+    {description}
+  </p>
+</motion.div>
+
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}

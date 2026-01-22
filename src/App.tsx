@@ -8,14 +8,13 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import PathologyPage from "./services/pathology/PathologyPage";
-import MRIPage from "./services/mri/MRIPage";
+// import MRIPage from "./services/mri/MRIPage";
 import CTScanPage from "./services/ct-scan/CTScanPage";
 import RadiologyPage from "./services/radiology/RadiologyPage";
 import UltrasoundPage from "./services/ultrasound/UltrasoundPage";
 import XRayPage from "./services/x-ray/XRayPage";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-// import Gallery from "./pages/Gallery";
 import ImageUploader from "./admin/ImageUploader";
 import ImageManager from "./admin/ImageManager";
 import ProtectedRoute from "@/components/ProtectedRoute";
@@ -23,6 +22,10 @@ import Login from "./pages/login";
 import PublicLayout from "@/layouts/PublicLayout";
 import AdminLayout from "@/layouts/AdminLayout";
 import ForgotPassword from "./pages/ForgotPassword";
+import EchoPage from "./services/echo/EchoPage";
+import TmtPage from "./services/tmt/TmtPage";
+import EcgPage from "./services/ecg/EcgPage";
+import PftPage from "./services/pft/PftPage";
 
 
 
@@ -45,11 +48,16 @@ const App = () => (
             <Route path="/contact-us" element={<Contact />} />
             {/* <Route path="/gallery" element={<Gallery />} /> */}
             <Route path="/services/pathology" element={<PathologyPage />} />
-            <Route path="/services/mri" element={<MRIPage />} />
+            {/* <Route path="/services/mri" element={<MRIPage />} /> */}
             <Route path="/services/ct-scan" element={<CTScanPage />} />
             <Route path="/services/radiology" element={<RadiologyPage />} />
             <Route path="/services/ultrasound" element={<UltrasoundPage />} />
             <Route path="/services/x-ray" element={<XRayPage />} />
+            <Route path="/services/echo" element={<EchoPage />} />
+            <Route path="/services/tmt" element={<TmtPage />} />
+            <Route path="/services/ecg" element={<EcgPage />} />
+            <Route path="/services/pft" element={<PftPage />} />
+
           </Route>
           <Route
             element={
