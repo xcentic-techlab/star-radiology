@@ -122,8 +122,8 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-primary shrink-0" />
-                  <a href="mailto:info@starradiodiagnostic.com" className="text-white/70 hover:text-primary transition-colors">
-                     info@starradiodiagnostic.com
+                  <a href="mailto:info@starradiology.com" className="text-white/70 hover:text-primary transition-colors">
+                     info@starradiology.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">

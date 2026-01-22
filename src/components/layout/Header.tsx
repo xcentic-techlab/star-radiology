@@ -69,9 +69,9 @@ const Header = () => {
 
 
 
-            <a href="mailto:info@starradiodiagnostic.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="mailto:info@starradiology.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>info@starradiodiagnostic.com</span>
+              <span>info@starradiology.com</span>
             </a>
           </div>
           <div className="flex items-center gap-2">
