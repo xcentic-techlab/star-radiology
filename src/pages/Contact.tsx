@@ -218,8 +218,6 @@ I want to book an appointment.`;
             </div>
           </div>
         </main>
-
-        <Footer />
       </div>
     </>
   );
