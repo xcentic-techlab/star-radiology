@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import starradiology_logo from "@/assets/starradiology_logo.png";
+import { FaWhatsapp } from "react-icons/fa";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -114,12 +116,30 @@ const Footer = () => {
                   <MapPin className="h-12 w-12 text-primary mt-1" />
                   <span className="text-white/70">KO-01, SECTOR-122,Noida Gautam Buddha Nagar,Uttar Pradesh-201301,</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <a href="tel:+1800123456" className="text-white/70 hover:text-primary transition-colors">
-                    +91-9711119014,+91-9711119015
-                  </a>
-                </li>
+<li className="flex items-start gap-3">
+  <FaWhatsapp className="h-5 w-5 text-blue-900 mt-1" />
+
+  <div className="flex flex-col">
+    <a
+      href="https://wa.me/919711119014"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 hover:text-blue-900 transition-colors"
+    >
+     +91-9711119014 ,
+    </a>
+
+    <a
+      href="https://wa.me/919711119015"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white/70 hover:text-blue-900 transition-colors"
+    >
+      +91-9711119015
+    </a>
+  </div>
+</li>
+
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-primary shrink-0" />
                   <a href="mailto:info@starradiology.com" className="text-white/70 hover:text-primary transition-colors">
