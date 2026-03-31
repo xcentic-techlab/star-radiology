@@ -83,17 +83,17 @@ const Header = () => {
 
       <nav className="bg-card/95 backdrop-blur-md shadow-md">
 <div className="container mx-auto flex justify-between items-center py-2">
-  <Link to="/" className="flex flex-col items-center gap-1">
-    <img 
-      src={starradiology_logo} 
-      alt="Star Radiology Logo" 
-      className="h-14 w-auto object-contain"
-    />
+<Link to="/" className="flex flex-col items-start leading-tight">
+  <img 
+    src={starradiology_logo} 
+    alt="Star Radiology Logo" 
+    className="h-12 w-auto object-contain"
+  />
 
-    <p className="text-xs text-gray-500 tracking-wide">
-      Assurance of Quality
-    </p>
-  </Link>
+  <p className="text-[11px] tracking-wide ml-6 mt-[2px] text-[#806c04]">
+    Assurance of Quality
+  </p>
+</Link>
 
 
 
