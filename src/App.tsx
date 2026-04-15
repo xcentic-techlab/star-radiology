@@ -26,6 +26,7 @@ import EchoPage from "./services/echo/EchoPage";
 import TmtPage from "./services/tmt/TmtPage";
 import EcgPage from "./services/ecg/EcgPage";
 import PftPage from "./services/pft/PftPage";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/services/ct-scan" element={<CTScanPage />} />
             <Route path="/services/radiology" element={<RadiologyPage />} />
             <Route path="/services/ultrasound" element={<UltrasoundPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/services/x-ray" element={<XRayPage />} />
             <Route path="/services/echo" element={<EchoPage />} />
             <Route path="/services/tmt" element={<TmtPage />} />

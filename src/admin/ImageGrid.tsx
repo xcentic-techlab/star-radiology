@@ -1,4 +1,6 @@
 import { Trash2, Image as ImageIcon } from "lucide-react";
+import { optimizeCloudinaryUrl } from "../../backend/utils/cloudinary";
+
 
 interface Props {
   images: any[];
@@ -30,10 +32,11 @@ export default function ImageGrid({ images, onDelete }: Props) {
         >
           <div className="relative h-44 overflow-hidden">
             <img
-              src={img.url}
-              className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-              alt={img.key}
-            />
+  src={optimizeCloudinaryUrl(img.url, 800)}
+  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+  alt={img.key}
+  loading="lazy"
+/>
           </div>
 
           <div className="flex items-center justify-between px-4 py-3 text-sm">

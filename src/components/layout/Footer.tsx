@@ -161,11 +161,8 @@ const Footer = () => {
                 text-white/60 text-sm">
   <p>© {currentYear} Lifeline Diagnostics. All rights reserved.</p>
   <div className="flex gap-6">
-    <Link to="/" className="hover:text-primary transition-colors">
+    <Link to="/privacy-policy" className="hover:text-primary transition-colors">
       Privacy Policy
-    </Link>
-    <Link to="/" className="hover:text-primary transition-colors">
-      Terms of Service
     </Link>
   </div>
   <div className="flex items-center gap-2 text-white/50">
